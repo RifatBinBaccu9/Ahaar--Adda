@@ -25,42 +25,10 @@
                             </div>
                         </div>
                         <a href="{{url('/contact')}}" class="nav-item nav-link">Contact</a>
+                         <!-- Common section start-->
+                   @include('font-site.pages.signup-login.common')
+                   <!-- Common section end-->
                     </div> 
-                    <div class="nav-item dropdown pe-3">
-
-                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                          <img src="/font-site/img/team-3.jpg" alt="Profile" class="rounded-circle" height="50px">
-                          <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-                        </a><!-- End Profile Iamge Icon -->
-              
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                          <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
-                          </li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-              
-                          <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                              <i class="bi bi-person"></i>
-                              <span>My Profile</span>
-                            </a>
-                          </li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-              
-                          <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                              <i class="bi bi-box-arrow-right"></i>
-                              <span>Sign Out</span>
-                            </a>
-                          </li>
-              
-                        </ul><!-- End Profile Dropdown Items -->
-                    </div><!-- End Profile Nav -->
                 </div>
             </nav>
 
@@ -93,44 +61,64 @@
                     <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                         <h1 class="text-white mb-4">Book A Table Online</h1>
-                        <form>
+                        <form action="{{route('bookingPush')}}" method="POST">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        <input type="text" name="name" class="@error('name') is-invalid @enderror form-control" id="name" placeholder="Your Name">
                                         <label for="name">Your Name</label>
+                                        @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                        <input type="text" name="email" class="@error('email') is-invalid @enderror form-control" id="email" placeholder="Your Email">
                                         <label for="email">Your Email</label>
+                                        @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                        <input type="text" name="datetime" class="@error('datetime') is-invalid @enderror form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
                                         <label for="datetime">Date & Time</label>
+                                        @error('datetime')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select" id="select1">
+                                        <select class="form-select @error('select') is-invalid @enderror" name="select" id="select1">
                                           <option value="1">People 1</option>
                                           <option value="2">People 2</option>
                                           <option value="3">People 3</option>
                                         </select>
                                         <label for="select1">No Of People</label>
+                                        @error('select')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                       </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                        <textarea class="form-control @error('message') is-invalid @enderror" name="message" placeholder="Special Request" id="message" style="height: 100px"></textarea>
                                         <label for="message">Special Request</label>
+                                        @error('message')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
+                                    @if (Auth::user())
                                     <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                    @else
+                                    <a class="btn btn-primary w-100 py-3" href="{{route('login')}}">Book Now</a>
+                                    @endif
                                 </div>
                             </div>
                         </form>

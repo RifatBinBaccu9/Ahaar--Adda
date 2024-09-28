@@ -12,7 +12,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
+                        <a href="{{url('/')}}" class="nav-item nav-link">Home</a>
                         <a href="{{url('/about')}}" class="nav-item nav-link">About</a>
                         <a href="{{url('/service')}}" class="nav-item nav-link">Service</a>
                         <a href="{{url('/menu')}}" class="nav-item nav-link">Menu</a>
@@ -25,42 +25,10 @@
                             </div>
                         </div>
                         <a href="{{url('/contact')}}" class="nav-item nav-link">Contact</a>
+                     <!-- Common section start-->
+                   @include('font-site.pages.signup-login.common')
+                   <!-- Common section end-->
                     </div>
-                    <div class="nav-item dropdown pe-3">
-
-                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                          <img src="/font-site/img/team-3.jpg" alt="Profile" class="rounded-circle" height="50px">
-                          <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-                        </a><!-- End Profile Iamge Icon -->
-              
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                          <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
-                          </li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-              
-                          <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                              <i class="bi bi-person"></i>
-                              <span>My Profile</span>
-                            </a>
-                          </li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-              
-                          <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                              <i class="bi bi-box-arrow-right"></i>
-                              <span>Sign Out</span>
-                            </a>
-                          </li>
-              
-                        </ul><!-- End Profile Dropdown Items -->
-                    </div><!-- End Profile Nav -->
                 </div>
             </nav>
 

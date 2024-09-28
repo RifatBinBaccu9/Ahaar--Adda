@@ -79,30 +79,43 @@
                     </div>
                     <div class="col-md-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form>
+                            <form action="{{route('contactPush')}}" method="POST">
+                                @csrf
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                            <input type="text" name="name" class="@error('name') is-invalid @enderror form-control" id="name" placeholder="Your Name">
                                             <label for="name">Your Name</label>
+                                             @error('name')
+                                                  <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                            <input type="text" name="email" class="@error('email') is-invalid @enderror form-control" id="email" placeholder="Your Email">
                                             <label for="email">Your Email</label>
+                                             @error('email')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                            <input type="text" name="subject" class="@error('subject') is-invalid @enderror form-control" id="subject" placeholder="Subject">
                                             <label for="subject">Subject</label>
+                                             @error('subject')
+                                                  <div class="text-danger">{{ $message }}</div>
+                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                            <textarea class="@error('namessageme') is-invalid @enderror form-control" name="message" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
                                             <label for="message">Message</label>
+                                             @error('message')
+                                                  <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">

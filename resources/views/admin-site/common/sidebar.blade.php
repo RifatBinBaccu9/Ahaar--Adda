@@ -9,14 +9,22 @@
         </a>
       </li><!-- End Dashboard Nav -->
       
-      <li class="nav-heading">Booking Setting</li>
+      <li class="nav-heading">Booking Data List</li>
       <li class="nav-item">
           <a class="nav-link collapsed" href="{{ url('/admin/bookingList') }}">
               <i class="bi bi-layout-text-window-reverse"></i>
-              <span>User Booking List</span>
+              <span>Users Booking List</span>
           </a>
       </li><!-- End Booking Setting Nav -->
       
+      <li class="nav-heading">Contact Data List</li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/contact/list">
+          <i class="bi bi-envelope"></i>
+          <span>Users Contact List</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
       <li class="nav-heading">Service Setting</li>
       <li class="nav-item">
           <a class="nav-link collapsed" href="{{ url('/admin/addService') }}">
@@ -72,29 +80,34 @@
           </ul>
       </li><!-- End Dinner Section -->
       
-
-      <li class="nav-heading">About Setting</li>
+      <li class="nav-heading">Team Setting</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-          <i class="bi bi-journal-text"></i><span>Add About</span>
-        </a>
-      </li><!-- End Forms Nav -->
-      
+          <a class="nav-link collapsed" href="{{ url('admin/addTeam') }}">
+              <i class="bi bi-journal-text"></i>
+              <span>Add Team Members</span>
+          </a>
+      </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>About Data</span>
-        </a>
-      </li><!-- End Tables Nav -->
+          <a class="nav-link collapsed" href="{{ url('admin/addTeam/list') }}">
+              <i class="bi bi-layout-text-window-reverse"></i>
+              <span>Team Members List</span>
+          </a>
+      </li><!-- End Service Setting Nav -->
 
-
-      <li class="nav-heading">Contact Setting</li>
+      <li class="nav-heading">Testimonial Setting</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-      
+          <a class="nav-link collapsed" href="{{ url('/admin/addTestimonial') }}">
+              <i class="bi bi-journal-text"></i>
+              <span>Add Testimonial</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/admin/addTestimonial/list') }}">
+              <i class="bi bi-layout-text-window-reverse"></i>
+              <span>Testimonial List</span>
+          </a>
+      </li><!-- End Service Setting Nav -->
+
       <li class="nav-heading">All Pages Setting</li>
       <!-- Breakfast Section -->
       <li class="nav-item">

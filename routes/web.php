@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FoodMenuController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SignupLoginControllr;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -93,16 +96,48 @@ Route::get('/admin/bookingList', [BookingController::class, 'bookingList'])->nam
 
 
 
+//// Team Member section ////
+Route::get('/team', [TeamController::class, 'team']);
 
-Route::get('/team', function () {
-    return view('font-site.pages.team');
-});
-Route::get('/testimonial', function () {
-    return view('font-site.pages.testimonial');
-});
-Route::get('/contact', function () {
-    return view('font-site.pages.contact');
-});
+// admin add Team section 
+Route::get('admin/addTeam', [TeamController::class, 'addTeam']);
+Route::post('admin/addTeam/push', [TeamController::class, 'addTeamPush'])->name('addTeamPush');
+
+// admin team List section
+Route::get('admin/addTeam/list', [TeamController::class, 'TeamList'])->name('TeamList');
+
+// admin team List update section
+Route::get('admin/addTeam/list/update/{id}', [TeamController::class, 'TeamListUpdate'])->name('TeamListUpdate');
+Route::post('admin/addTeam/list/edit', [TeamController::class, 'TeamListEdit'])->name('TeamListEdit');
+
+// admin team List delete section
+Route::get('admin/addTeam/delete/{id}', [TeamController::class, 'TeamListDelete'])->name('TeamListDelete');
+
+
+//// testimonial section  ////
+Route::get('/testimonial', [TestimonialController::class, 'testimonial']);
+
+// admin add testimonial section
+Route::get('/admin/addTestimonial', [TestimonialController::class, 'addTestimonial']);
+Route::post('/admin/addTestimonial/push', [TestimonialController::class, 'addTestimonialPush'])->name('addTestimonialPush');
+
+// admin testimonial list section
+Route::get('/admin/addTestimonial/list', [TestimonialController::class, 'TestimonialList'])->name('TestimonialList');
+
+// admin Testimonial update section
+Route::get('/admin/addTestimonial/list/update/{id}', [TestimonialController::class, 'TestimonialListupdate'])->name('TestimonialListupdate');
+Route::post('/admin/addTestimonial/list/edit', [TestimonialController::class, 'TestimonialListEdit'])->name('TestimonialListEdit');
+
+// admin Testimonial delete section
+Route::get('/admin/addTestimonial/list/delete/{id}', [TestimonialController::class, 'TestimonialListdelete'])->name('TestimonialListdelete');
+
+
+////  Contact section  ////
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::post('/contact/push', [ContactController::class, 'contactPush'])->name('contactPush');
+
+// contact List section
+Route::get('/admin/contact/list', [ContactController::class, 'contactList'])->name('contactList');
 
 
 
@@ -114,6 +149,7 @@ Route::post('/signup/push', [SignupLoginControllr::class, 'signupPush'])->name('
 // Login section
 Route::get('/login', [SignupLoginControllr::class, 'login'])->name('login');
 Route::post('/login/push', [SignupLoginControllr::class, 'loginPush'])->name('loginPush');
+
 // Log Out section
 Route::get('/logout', [SignupLoginControllr::class, 'logout'])->name('logout');
 

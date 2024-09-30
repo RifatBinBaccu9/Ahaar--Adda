@@ -16,7 +16,7 @@
         <div class="card-body">
           <h5 class="card-title">Add Your Service</h5>
 
-          <!-- Vertical Form -->
+          <!-- Vertical service Form -->
           <form class="row g-3" action="{{route('serviceListEdit')}}" method="POST">
             @csrf
             <input type="hidden" name="id" value="{{$serviceDataUpdate->id}}">

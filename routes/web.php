@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllPagesSettingController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FoodMenuController;
@@ -161,3 +162,7 @@ Route::get('/admin', function () {
     return view('admin-site.pages.home');
 })->name('admin')->middleware('admin');
 
+//// All Pages Setting  ////
+//admin Navbar section
+Route::get('/AllPagesSetting/navbar', [AllPagesSettingController::class, 'AllPagesSettingnavbar']);
+Route::post('/AllPagesSetting/navbar/push', [AllPagesSettingController::class, 'navbarPush'])->name('navbarPush');

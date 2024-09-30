@@ -113,41 +113,16 @@
       <li class="nav-item">
           <a class="nav-link collapsed" href="#breakfastSubmenu" data-bs-toggle="collapse">
             <i class="fa-solid fa-bars-progress"></i>
-              <span>Breakfast</span>
+              <span>All Pages Setting</span>
               <i class="bi bi-chevron-down ms-auto"></i>
           </a>
           <ul id="breakfastSubmenu" class="collapse nav-content">
-              <li><a href="{{ url('/admin/addBreakFast') }}">Add Breakfast Item</a></li>
-              <li><a href="{{ url('/admin/addBreakFast/List') }}">Breakfast List</a></li>
+              <li><a href="{{ url('/AllPagesSetting/navbar') }}">Navbar </a></li>
           </ul>
       </li><!-- End Breakfast Section -->
       
-      <!-- Lunch Section -->
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="#lunchSubmenu" data-bs-toggle="collapse">
-            <i class="fa-solid fa-bars-progress"></i>
-              <span>Lunch</span>
-              <i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul id="lunchSubmenu" class="collapse nav-content">
-              <li><a href="{{ url('/admin/addLaunch') }}">Add Lunch Item</a></li>
-              <li><a href="{{ url('/admin/addLaunch/List') }}">Lunch List</a></li>
-          </ul>
-      </li><!-- End Lunch Section -->
-      
-      <!-- Dinner Section -->
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="#dinnerSubmenu" data-bs-toggle="collapse">
-            <i class="fa-solid fa-bars-progress"></i>
-              <span>Dinner</span>
-              <i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul id="dinnerSubmenu" class="collapse nav-content">
-              <li><a href="{{ url('/admin/addDinner') }}">Add Dinner Item</a></li>
-              <li><a href="{{ url('/admin/addDinner/List') }}">Dinner List</a></li>
-          </ul>
-      </li><!-- End Dinner Section -->
-      
+
+      <li class="nav-heading">Pages Setting</li>
 
     </ul>
 

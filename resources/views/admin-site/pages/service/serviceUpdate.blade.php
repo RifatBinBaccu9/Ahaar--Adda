@@ -14,7 +14,7 @@
 
     <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Add Your Service</h5>
+          <h5 class="card-title">Add Your Services</h5>
 
           <!-- Vertical service Form -->
           <form class="row g-3" action="{{route('serviceListEdit')}}" method="POST">

@@ -2,7 +2,7 @@
 <div class="nav-item dropdown pe-3" >
 
   <a  class="nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" style="margin-left: 50px; padding-top: 23px;">
-    <img src="/font-site/img/team-3.jpg" alt="Profile" class="rounded-circle" height="50px">
+    <img src="{{asset($user->profilePicture)}}" alt="Profile" class="rounded-circle" height="50px">
     <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
   </a><!-- End Profile Iamge Icon -->
 

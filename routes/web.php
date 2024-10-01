@@ -9,6 +9,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SignupLoginControllr;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -166,3 +167,7 @@ Route::get('/admin', function () {
 //admin Navbar section
 Route::get('/AllPagesSetting/navbar', [AllPagesSettingController::class, 'AllPagesSettingnavbar']);
 Route::post('/AllPagesSetting/navbar/push', [AllPagesSettingController::class, 'navbarPush'])->name('navbarPush');
+
+//// user profile ////
+Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('userProfile');
+Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updateProfile'])->name('updateProfile');

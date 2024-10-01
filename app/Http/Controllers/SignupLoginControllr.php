@@ -11,7 +11,8 @@ class SignupLoginControllr extends Controller
 
 //// Signup section ////
     public function signup() {
-        return view('font-site.pages.signup-login.signup');
+        $user=Auth::user();
+        return view('font-site.pages.signup-login.signup',['user'=>$user]);
     }
     public function signupPush(Request $req){
         $req->validate([

@@ -15,7 +15,8 @@ class TestimonialController extends Controller
     }
 // admin add testimonial section
     public function addTestimonial() {
-        return view('admin-site.pages.testimonial.addTestimonial');
+        $user=Auth::user();
+        return view('admin-site.pages.testimonial.addTestimonial',['user'=>$user]);
     }
     public function addTestimonialPush(Request $req){
         $req->validate([
@@ -49,14 +50,16 @@ class TestimonialController extends Controller
 
     // admin testimonial list section
     public function TestimonialList(){
+        $user=Auth::user();
         $TestimonialData=Testimonial::get();
-        return view('admin-site.pages.testimonial.TestimonialList', ['TestimonialView'=>$TestimonialData]);
+        return view('admin-site.pages.testimonial.TestimonialList', ['TestimonialView'=>$TestimonialData, 'user'=>$user]);
     }
 
     // admin Testimonial update section
     public function TestimonialListupdate($id){
+        $user=Auth::user();
         $TestimonialStor=Testimonial::where(['id'=>$id])->first();
-        return view('admin-site.pages.testimonial.TestimonialListupdate', ['TestimonialStorage'=>$TestimonialStor]);
+        return view('admin-site.pages.testimonial.TestimonialListupdate', ['TestimonialStorage'=>$TestimonialStor, 'user'=>$user]);
     }
     public function TestimonialListEdit(Request $req){
         if(! is_dir(public_path('admin-site/img/Testimonial'))){

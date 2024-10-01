@@ -30,6 +30,7 @@ class ContactController extends Controller
     }
     public function contactList(){
         $contactSror=contact::get();
-        return view('admin-site.pages.contact.contactList', ['contactView'=>$contactSror]);
+        $user=Auth::user();
+        return view('admin-site.pages.contact.contactList', ['contactView'=>$contactSror, 'user'=>$user]);
     }
 }

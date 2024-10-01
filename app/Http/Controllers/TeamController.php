@@ -17,7 +17,8 @@ class TeamController extends Controller
 
     //Admin Add Team Member section
     public function addTeam(){
-        return view('admin-site.pages.Team-Members.addTeam');
+        $user=Auth::user();
+        return view('admin-site.pages.Team-Members.addTeam',['user'=>$user]);
     }
 
     public function addTeamPush(Request $req){
@@ -56,14 +57,16 @@ class TeamController extends Controller
 
     // Admin team List 
     public function TeamList(){
+        $user=Auth::user();
         $teamStor=Team::get();
-        return view('admin-site.pages.Team-Members.teamList', ['teamMemberView'=>$teamStor]);
+        return view('admin-site.pages.Team-Members.teamList', ['teamMemberView'=>$teamStor, 'user'=>$user]);
     }
     
     //Admin team List update section
     public function TeamListUpdate($id){
+        $user=Auth::user();
         $teamUpdate=Team::where(['id'=>$id])->first();
-        return view('admin-site.pages.Team-Members.teamListUpdate', ['teamStorage'=>$teamUpdate]);
+        return view('admin-site.pages.Team-Members.teamListUpdate', ['teamStorage'=>$teamUpdate, 'user'=>$user]);
     }
     public function TeamListEdit(Request $req){
   

@@ -5,6 +5,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FoodMenuController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SignupLoginControllr;
 use App\Http\Controllers\TeamController;
@@ -165,13 +166,21 @@ Route::get('/admin', function () {
     return view('admin-site.pages.home',['user'=>$user]);
 })->name('admin')->middleware('admin');
 
+
+
 //// All Pages Setting  ////
 //admin Navbar section
 Route::get('/AllPagesSetting/navbar', [AllPagesSettingController::class, 'AllPagesSettingnavbar']);
 Route::post('/AllPagesSetting/navbar/push', [AllPagesSettingController::class, 'navbarPush'])->name('navbarPush');
+
+
 
 //// user profile ////
 Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('userProfile');
 Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updateProfile'])->name('updateProfile');
 // password update
 Route::post('/user/profile/updatePassword', [UserProfileController::class, 'updatePassword'])->name('updatePassword');
+
+
+//// Mail Sent  ////
+Route::get('/SentMail', [MailController::class, 'SentMail']);

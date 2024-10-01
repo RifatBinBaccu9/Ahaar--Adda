@@ -15,7 +15,8 @@ class ServiceController extends Controller
     }
     // Admin add service section  //
    public function addService() {
-    return view('admin-site.pages.service.addService');
+    $user=Auth::user();
+    return view('admin-site.pages.service.addService',['user'=>$user]);
 }
    public function addServicePush(Request $req){
     $req->validate([
@@ -33,13 +34,15 @@ class ServiceController extends Controller
    }
    public function serviceList() {
     $serviceStor=AddService::get();
-    return view('admin-site.pages.service.serviceList', ['serviceView'=>$serviceStor]);
+    $user=Auth::user();
+    return view('admin-site.pages.service.serviceList', ['serviceView'=>$serviceStor, 'user'=>$user]);
 }
 
 // Admin add servise update section
    public function serviceListUpdate($id){
+    $user=Auth::user();
   $serviceDataStor=AddService::where(['id'=>$id])->first();
-  return view('admin-site.pages.service.serviceUpdate', ['serviceDataUpdate'=>$serviceDataStor]);
+  return view('admin-site.pages.service.serviceUpdate', ['serviceDataUpdate'=>$serviceDataStor, 'user'=>$user]);
    }
    public function serviceListEdit(Request $req){
     $req->validate([

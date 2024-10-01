@@ -34,6 +34,7 @@ class BookingController extends Controller
 
     public function bookingList(){
         $bookingStor=Booking::get();
-        return view('admin-site.pages.booking.bookingList', ['BookingView'=>$bookingStor]);
+        $user=Auth::user();
+        return view('admin-site.pages.booking.bookingList', ['BookingView'=>$bookingStor,'user'=>$user]);
     }
 }

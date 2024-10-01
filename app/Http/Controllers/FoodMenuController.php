@@ -21,7 +21,8 @@ class FoodMenuController extends Controller
 
     //Admin Add Breakfast section
     public function addBreakFast(){
-        return view('admin-site.pages.Food-Menu.Breakfast-Item.addBreakfastItem');
+        $user=Auth::user();
+        return view('admin-site.pages.Food-Menu.Breakfast-Item.addBreakfastItem',['user'=>$user]);
     }
     public function addBreakFastPush(Request $req){
         $req->validate([
@@ -57,13 +58,15 @@ class FoodMenuController extends Controller
     // Admin Breakfast List 
     public function BreakFastList(){
         $breakfastStor=BreakFast::get();
-        return view('admin-site.pages.Food-Menu.Breakfast-Item.BreakfastList', ['BreakfastView'=>$breakfastStor]);
+        $user=Auth::user();
+        return view('admin-site.pages.Food-Menu.Breakfast-Item.BreakfastList', ['user'=>$user, 'BreakfastView'=>$breakfastStor]);
     }
     
     //Admin Breakfast List update section
     public function BreakFastListUpdate($id){
+        $user=Auth::user();
         $breakfastUpdate=BreakFast::where(['id'=>$id])->first();
-        return view('admin-site.pages.Food-Menu.Breakfast-Item.breakfastUpdate', ['Breakfast'=>$breakfastUpdate]);
+        return view('admin-site.pages.Food-Menu.Breakfast-Item.breakfastUpdate', ['Breakfast'=>$breakfastUpdate, 'user'=>$user]);
     }
     public function BreakFastListEdit(Request $req){
   
@@ -99,7 +102,8 @@ class FoodMenuController extends Controller
 
     //Admin Add Launch section
     public function addLaunch(){
-        return view('admin-site.pages.Food-Menu.Launch.addLaunch');
+        $user=Auth::user();
+        return view('admin-site.pages.Food-Menu.Launch.addLaunch',['user'=>$user]);
     }
     public function addLaunchPush(Request $req){
         $req->validate([
@@ -135,13 +139,15 @@ class FoodMenuController extends Controller
    // Admin launch List 
     public function LaunchList(){
         $launchfastStor=Launch::get();
-        return view('admin-site.pages.Food-Menu.Launch.launchList', ['launchView'=>$launchfastStor]);
+        $user=Auth::user();
+        return view('admin-site.pages.Food-Menu.Launch.launchList', ['launchView'=>$launchfastStor, 'user'=>$user]);
     }
     
     //Admin launch List update section
     public function LaunchListUpdate($id){
+        $user=Auth::user();
         $LaunchUpdate=Launch::where(['id'=>$id])->first();
-        return view('admin-site.pages.Food-Menu.Launch.LaunchListUpdate', ['Launch'=>$LaunchUpdate]);
+        return view('admin-site.pages.Food-Menu.Launch.LaunchListUpdate', ['Launch'=>$LaunchUpdate, 'user'=>$user]);
     }
 
     public function LaunchListEdit(Request $req){
@@ -178,7 +184,8 @@ class FoodMenuController extends Controller
 
     //Admin Add Launch section
     public function addDinner(){
-        return view('admin-site.pages.Food-Menu.Dinner.addDinner');
+        $user=Auth::user();
+        return view('admin-site.pages.Food-Menu.Dinner.addDinner',['user'=>$user]);
     }
     public function addDinnerPush(Request $req){
         $req->validate([
@@ -213,14 +220,16 @@ class FoodMenuController extends Controller
 
 // Admin launch List 
     public function DinnerList(){
+        $user=Auth::user();
         $dinnerStor=Dinner::get();
-        return view('admin-site.pages.Food-Menu.Dinner.dinnerList', ['dinnerView'=>$dinnerStor]);
+        return view('admin-site.pages.Food-Menu.Dinner.dinnerList', ['dinnerView'=>$dinnerStor, 'user'=>$user]);
     }
     
 //Admin launch List update section
     public function DinnerListUpdate($id){
+        $user=Auth::user();
         $DinnerUpdate=Dinner::where(['id'=>$id])->first();
-        return view('admin-site.pages.Food-Menu.Dinner.dinnerUpdete', ['Dinner'=>$DinnerUpdate]);
+        return view('admin-site.pages.Food-Menu.Dinner.dinnerUpdete', ['Dinner'=>$DinnerUpdate, 'user'=>$user]);
     }
 
     public function DinnerListEdit(Request $req){

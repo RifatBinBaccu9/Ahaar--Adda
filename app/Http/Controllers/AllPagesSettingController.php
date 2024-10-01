@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AllPagesSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AllPagesSettingController extends Controller
 {
@@ -11,7 +12,8 @@ class AllPagesSettingController extends Controller
 
 //admin Navbar section
     public function AllPagesSettingnavbar(){
-        return view('admin-site.pages.All Pages Setting.navbar');
+        $user=Auth::user();
+        return view('admin-site.pages.allpages.navName',['user'=>$user]);
     }
     public function navbarPush(Request $req){
         $req->validate([

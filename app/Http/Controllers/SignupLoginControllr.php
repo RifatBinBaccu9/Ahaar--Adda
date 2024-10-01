@@ -33,7 +33,8 @@ class SignupLoginControllr extends Controller
 
     // Login section
     public function login(){
-        return view('font-site.pages.signup-login.login');
+        $user=Auth::user();
+        return view('font-site.pages.signup-login.login',['user'=>$user]);
     }
     public function loginPush(Request $req){
         if(Auth::attempt(['email' =>$req->email, 'password' =>$req->password])){

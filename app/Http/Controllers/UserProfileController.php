@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
 {
@@ -42,4 +44,26 @@ class UserProfileController extends Controller
 
     return redirect()->back();
 }
+
+// password update
+public function updatePassword(Request $req)
+{
+    $req->validate([
+        'oldpassword' => 'required',
+        'new_password' => 'required|confirmed',
+        'new_password_confirmation' => 'required',
+    ]);
+    if (Hash::check($req->oldpassword, Auth::user()->password)) {
+
+        User::whereId(Auth::user()->id)->update([
+            'password' => Hash::make($req->new_password),
+        ]);
+
+        return redirect()->back()->with('success', 'Password updated successfully.');
+    } else {
+        
+        return redirect()->back()->with('error', 'Old password is incorrect.');
+    }
+}
+
 }

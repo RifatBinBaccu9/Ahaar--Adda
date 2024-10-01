@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
      //// Team Member section  ////
      public function team() {
+        $user=Auth::user();
         $teamStor=Team::get();
-        return view('font-site.pages.team', ['teamMemberView'=>$teamStor]);
+        return view('font-site.pages.team', ['user'=>$user,'teamMemberView'=>$teamStor]);
     }
 
     //Admin Add Team Member section

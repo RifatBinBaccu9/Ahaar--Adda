@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\AddService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
     public function service() {
         $serviceStor=AddService::get();
-        return view('font-site.pages.service', ['serviceView'=>$serviceStor]);
+        $user=Auth::user();
+        return view('font-site.pages.service', ['user'=>$user,'serviceView'=>$serviceStor]);
     }
     // Admin add service section  //
    public function addService() {

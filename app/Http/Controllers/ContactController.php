@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\contact;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function contact() {
-        return view('font-site.pages.contact');
+        $user=Auth::user();
+        return view('font-site.pages.contact',['user'=>$user]);
     }
     public function contactPush(Request $req){
         $req->validate([

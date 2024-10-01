@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
     public function testimonial() {
+        $user=Auth::user();
         $TestimonialData=Testimonial::get();
-        return view('font-site.pages.testimonial', ['TestimonialView'=>$TestimonialData]);
+        return view('font-site.pages.testimonial', ['user'=>$user,'TestimonialView'=>$TestimonialData]);
     }
 // admin add testimonial section
     public function addTestimonial() {

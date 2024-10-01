@@ -10,6 +10,7 @@ use App\Http\Controllers\SignupLoginControllr;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -160,7 +161,8 @@ Route::get('/logout', [SignupLoginControllr::class, 'logout'])->name('logout');
 
 //// Admin-site secton ////
 Route::get('/admin', function () {
-    return view('admin-site.pages.home');
+    $user=Auth::user();
+    return view('admin-site.pages.home',['user'=>$user]);
 })->name('admin')->middleware('admin');
 
 //// All Pages Setting  ////
@@ -171,3 +173,5 @@ Route::post('/AllPagesSetting/navbar/push', [AllPagesSettingController::class, '
 //// user profile ////
 Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('userProfile');
 Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updateProfile'])->name('updateProfile');
+// password update
+Route::post('/user/profile/updatePassword', [UserProfileController::class, 'updatePassword'])->name('updatePassword');

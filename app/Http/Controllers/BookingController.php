@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
 class BookingController extends Controller
 {
     public function booking() {
-        return view('font-site.pages.booking');
+        $user=Auth::user();
+        return view('font-site.pages.booking',['user'=>$user]);
     }
     public function bookingPush(Request $req){
         $req->validate([

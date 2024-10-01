@@ -7,7 +7,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-          {{-- <li class="breadcrumb-item active"><a href="{{route('adminProfile')}}" style="color: rgb(214, 11, 221);">Profile</a></li> --}}
+          <li class="breadcrumb-item active"><a href="#" style="color: rgb(214, 11, 221);">Profile</a></li>
         </ol>
       </nav>
     </div>
@@ -159,7 +159,7 @@
     
                     </div>
     
-                    {{-- <div class="tab-pane fade pt-3" id="profile-change-password">
+                    <div class="tab-pane fade pt-3" id="profile-change-password">
                       <!-- Change Password Form -->
                       <form action="{{route('updatePassword')}}" method="POST">
                       @csrf
@@ -198,7 +198,7 @@
                         </div>
                       </form><!-- End Change Password Form -->
     
-                    </div> --}}
+                    </div>
     
                   </div><!-- End Bordered Tabs -->
     

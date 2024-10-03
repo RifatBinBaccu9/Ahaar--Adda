@@ -39,8 +39,8 @@ Route::post('/admin/serviceList/edit', [ServiceController::class, 'serviceListEd
 // Admin service list delate section
 Route::get('/admin/serviceList/delete/{id}', [ServiceController::class, 'serviceListDelete'])->name('serviceListDelete');
 
-Route::post('/posts/{post}/accept', [ServiceController::class, 'accept'])->name('posts.accept');
-Route::post('/posts/{post}/reject', [ServiceController::class, 'reject'])->name('posts.reject');
+Route::post('/posts/accept/{id}', [ServiceController::class, 'accept'])->name('posts.accept');
+Route::post('/posts/reject{id}', [ServiceController::class, 'reject'])->name('posts.reject');
 
 
 //// Food Menu section  ////

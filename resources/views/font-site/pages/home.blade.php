@@ -41,7 +41,7 @@
                         <p class="text-white animated slideInLeft mb-4 pb-2">Our restaurant is dedicated to 
                             serving delicious meals made from the freshest ingredients. With a diverse menu that showcases the rich flavors 
                             of our culture</p>
-                        <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
+                        <a href="{{url('/booking')}}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
                     </div>
                     <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                         <img class="img-fluid" src="/font-site/img/hero.png" alt="">

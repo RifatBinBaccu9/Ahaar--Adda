@@ -33,18 +33,30 @@
                     <td>{{$item->ServiceTitle}}</td>
                     <td>{{$item->ServiceDetails}}</td>
                     <td>
-                      <!-- Update Button -->
-                      <a href="{{route('serviceListUpdate', $item->id)}}" class="btn btn-warning btn-sm">
-                          <i class="fas fa-edit"></i> Update
-                      </a>
-                  
-                      <!-- Delete Button -->
-                      <a href="{{route('serviceListDelete', $item->id)}}" class="btn btn-danger btn-sm">
-                          <i class="fas fa-trash-alt"></i> Delete
-                      </a>
-                  </td>                                                                
+                        <!-- Update Button -->
+                        <a href="{{ route('serviceListUpdate', $item->id) }}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> Update
+                        </a>
+            
+                        <!-- Delete Button -->
+                        <a href="{{ route('serviceListDelete', $item->id) }}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                    </td>     
+                    @if ($item->status === 'pending')
+                        <td>
+                            <form action="{{ route('posts.accept', $item->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                            </form>
+                            <form action="{{ route('posts.reject', $item->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                            </form>
+                        </td>
+                    @endif
                 </tr>
-                @endforeach
+            @endforeach
             </tbody>
             </table>
           </div>

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('add_services', function (Blueprint $table) {
             $table->id();
+            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->string('ServiceIcon');
             $table->string('ServiceTitle');
             $table->string('ServiceDetails');

@@ -64,4 +64,26 @@ class ServiceController extends Controller
     AddService::where(['id'=>$id])->delete();
     return redirect()->back();
    }
+
+   
+   // admin status accepted 
+   public function accept($id)
+   {
+       $post = AddService::findOrFail($id);
+       $post->status = 'accepted';
+       $post->save();
+
+       return redirect()->back();
+   }
+
+   // admin status rejected 
+   public function reject($id)
+   {
+       $post = AddService::findOrFail($id);
+       $post->status = 'rejected';
+       $post->save();
+
+       return redirect()->back();
+   }
+
 }

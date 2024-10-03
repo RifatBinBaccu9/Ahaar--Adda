@@ -17,7 +17,7 @@ class HomeController extends Controller
         $user=Auth::user();
         $TestimonialData=Testimonial::get();
         $teamStor=Team::get();
-        $serviceStor=AddService::get();
+        $serviceStor=AddService::where('status', 'accepted')->get();
         $breakfastStor=BreakFast::get();
         $launchfastStor=Launch::get();
         $dinnerStor=Dinner::get();

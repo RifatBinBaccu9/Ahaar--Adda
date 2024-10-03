@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class AddService extends Model
 {
     use HasFactory;
-    protected $guarded =[];
+    protected $guarded=[];
 }

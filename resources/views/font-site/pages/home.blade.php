@@ -38,7 +38,9 @@
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6 text-center text-lg-start">
                         <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
-                        <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="text-white animated slideInLeft mb-4 pb-2">Our restaurant is dedicated to 
+                            serving delicious meals made from the freshest ingredients. With a diverse menu that showcases the rich flavors 
+                            of our culture</p>
                         <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
                     </div>
                     <div class="col-lg-6 text-center text-lg-end overflow-hidden">
@@ -62,7 +64,7 @@
                 @foreach ($serviceView as $item)
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item rounded pt-3">
-                    <div class="p-4">
+                    <div class="p-4" style="height: 350px">
                         <i class="{{$item->ServiceIcon}} text-primary mb-4"></i>
                         <h5>{{$item->ServiceTitle}}</h5>
                         <p>{{$item->ServiceDetails}}</p>
@@ -99,8 +101,12 @@
                 <div class="col-lg-6">
                     <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
                     <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Restoran</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <p class="mb-4">At Ahaar Adda, we believe in delivering a culinary experience like no other. Our restaurant is dedicated to 
+                        serving delicious meals made from the freshest ingredients. With a diverse menu that showcases the rich flavors 
+                        of our culture,</p>
+                    <p class="mb-4"> we aim to provide not just food but a memorable dining experience for our guests. Whether you're 
+                        here for a casual lunch or a special occasion, our friendly staff is committed to ensuring you have an 
+                        unforgettable time. Come and savor the flavors of Ahaar Adda!</p>
                     <div class="row g-4 mb-4">
                         <div class="col-sm-6">
                             <div class="d-flex align-items-center border-start border-5 border-primary px-3">
@@ -121,7 +127,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Food Menu</a>
                 </div>
             </div>
         </div>

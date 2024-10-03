@@ -9,6 +9,13 @@
         </a>
       </li><!-- End Dashboard Nav -->
       
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('/AllPagesSetting/navbar') }}">
+            <i class="bi bi-layout-text-window-reverse"></i>
+            <span>NavBar</span>
+        </a>
+    </li><!-- End Service Setting Nav -->
+    
       <li class="nav-heading">Booking Data List</li>
       <li class="nav-item">
           <a class="nav-link collapsed" href="{{ url('/admin/bookingList') }}">
@@ -108,21 +115,9 @@
           </a>
       </li><!-- End Service Setting Nav -->
 
-      <li class="nav-heading">All Pages Setting</li>
-      <!-- Breakfast Section -->
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="#breakfastSubmenu" data-bs-toggle="collapse">
-            <i class="fa-solid fa-bars-progress"></i>
-              <span>All Pages Setting</span>
-              <i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul id="breakfastSubmenu" class="collapse nav-content">
-              <li><a href="{{ url('/AllPagesSetting/navbar') }}">Navbar </a></li>
-          </ul>
-      </li><!-- End Breakfast Section -->
       
-
       <li class="nav-heading">Pages Setting</li>
+     
 
     </ul>
 

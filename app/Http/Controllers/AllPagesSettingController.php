@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AllPagesSetting;
+use App\Models\Navbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,16 +13,26 @@ class AllPagesSettingController extends Controller
 //admin Navbar section
     public function AllPagesSettingnavbar(){
         $user=Auth::user();
-        return view('admin-site.pages.allpages.navName',['user'=>$user]);
+        $navdata=Navbar::get();
+        return view('admin-site.pages.allpages.navName',['user'=>$user, 'navView'=>$navdata]);
     }
-    public function navbarPush(Request $req){
-        $req->validate([
-            'NavbarName'=>'required',
-        ]);
-    $navbarData=[
-     'NavbarName'=>$req->NavbarName,
-    ];
-      AllPagesSetting::create($navbarData);
-      dd($navbarData);
+    public function navbarPush(Request $req) {
+         $data=[
+            'WebsitName' => $req->WebsitName,
+        ];
+      
+           Navbar::create($data);
+
+    
+        return redirect()->route('navbar');
     }
+
+    public function navbarId($id){
+        $user=Auth::user();
+        $navdata=Navbar::get();
+        $dataNav=Navbar::where(['id'=>$id])->first();
+        return view('admin-site.pages.allpages.navName', ['user'=>$user, 'NavStor'=>$dataNav, 'navView'=>$navdata]);
+    }
+    
+    
 }

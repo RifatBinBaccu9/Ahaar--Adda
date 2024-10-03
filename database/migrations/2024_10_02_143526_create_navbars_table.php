@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('all_pages_settings', function (Blueprint $table) {
+        Schema::create('navbars', function (Blueprint $table) {
             $table->id();
-            $table->string('NavbarName');
+            $table->string('WebsitName');
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('all_pages_settings');
+        Schema::dropIfExists('navbars');
     }
 };

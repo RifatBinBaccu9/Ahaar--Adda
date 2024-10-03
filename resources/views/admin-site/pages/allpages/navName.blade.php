@@ -17,18 +17,20 @@
           <h5 class="card-title">All Pages Setting</h5>
 
           <!-- Vertical Form -->
-          <form class="row g-3" action="{{route('navbarPush')}}" method="POST" enctype="multipart/form-data">
+          <form class="row g-3" action="{{route('navbarPush')}}" method="POST" >
             @csrf
             <div class="col-12">
-              <label for="NavbarName" class="form-label">Navbar Name</label>
-              <input type="text" name="NavbarName" class="@error('NavbarName') is-invalid @enderror form-control" id="NavbarName">
-              @error('NavbarName')
-              <div class="text-danger">{{ $message }}</div>
-            @enderror
+              @foreach ($navView as $item)
+              <label for="WebsitName" class="form-label">Navbar Name</label>
+              <input type="text" name="WebsitName" value="{{$item->WebsitName}}" class=" form-control" id="WebsitName">
+              @endforeach
             </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+            
+            
+              <a type="submit" href="{{route('navbarId', $item->id)}}" class="btn btn-primary">Submit</a>
             </div>
           </form><!-- Vertical Form -->
+
 
         </div>
       </div>

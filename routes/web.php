@@ -39,6 +39,8 @@ Route::post('/admin/serviceList/edit', [ServiceController::class, 'serviceListEd
 // Admin service list delate section
 Route::get('/admin/serviceList/delete/{id}', [ServiceController::class, 'serviceListDelete'])->name('serviceListDelete');
 
+Route::post('/posts/{post}/accept', [ServiceController::class, 'accept'])->name('posts.accept');
+Route::post('/posts/{post}/reject', [ServiceController::class, 'reject'])->name('posts.reject');
 
 
 //// Food Menu section  ////
@@ -170,14 +172,17 @@ Route::get('/admin', function () {
 
 //// All Pages Setting  ////
 //admin Navbar section
-Route::get('/AllPagesSetting/navbar', [AllPagesSettingController::class, 'AllPagesSettingnavbar']);
+Route::get('/AllPagesSetting/navbar', [AllPagesSettingController::class, 'AllPagesSettingnavbar'])->name('navbar');
 Route::post('/AllPagesSetting/navbar/push', [AllPagesSettingController::class, 'navbarPush'])->name('navbarPush');
+Route::get('navbarId/{id}', [AllPagesSettingController::class, 'navbarId'])->name('navbarId');
+// Route::post('navbar/update', [AllPagesSettingController::class, 'navbarUpdate'])->name('navbarUpdate');
 
 
 
 //// user profile ////
 Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('userProfile');
 Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updateProfile'])->name('updateProfile');
+
 // password update
 Route::post('/user/profile/updatePassword', [UserProfileController::class, 'updatePassword'])->name('updatePassword');
 

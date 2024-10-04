@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('datetime');
             $table->string('select');
             $table->string('message');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

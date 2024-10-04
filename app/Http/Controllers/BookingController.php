@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AddService;
 use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
 
 class BookingController extends Controller
 {
@@ -22,6 +23,7 @@ class BookingController extends Controller
          'message'=>'required',
         ]);
         $bookingData=[
+          'user_id' => $req->user_id,
           'name'=>$req->name,
           'email'=>$req->email,
           'datetime'=>$req->datetime,
@@ -36,5 +38,8 @@ class BookingController extends Controller
         $bookingStor=Booking::get();
         $user=Auth::user();
         return view('admin-site.pages.booking.bookingList', ['BookingView'=>$bookingStor,'user'=>$user]);
+    }
+    public function show(){
+        return User::find(1)->booking;
     }
 }

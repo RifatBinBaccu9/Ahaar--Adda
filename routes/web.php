@@ -99,6 +99,7 @@ Route::post('/booking/push', [BookingController::class, 'bookingPush'])->name('b
 
 // Admin booking List section
 Route::get('/admin/bookingList', [BookingController::class, 'bookingList'])->name('bookingList');
+Route::get('/show', [BookingController::class, 'show']);
 
 
 

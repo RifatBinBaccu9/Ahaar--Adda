@@ -18,7 +18,7 @@
 
           <!-- Vertical Form -->
           <form class="row g-3" action="{{route('addServicePush')}}" method="POST">
-            @csrf
+            @csrf      
             <div class="col-12">
               <label for="ServiceIcon" class="form-label">Service Icon</label>
               <input type="text" name="ServiceIcon" class="@error('ServiceIcon') is-invalid @enderror form-control" id="ServiceIcon">

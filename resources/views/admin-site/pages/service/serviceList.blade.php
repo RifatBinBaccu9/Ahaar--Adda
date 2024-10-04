@@ -33,6 +33,15 @@
                     <td>{{$item->ServiceTitle}}</td>
                     <td>{{$item->ServiceDetails}}</td>
                     <td>
+                      @if ($item->status == 'accepted')
+                      <h5>Accept</h5>
+                      @elseif ($item->status == 'rejected')
+                      <h5>Reject</h5>
+                      @else
+                      <h5>Pending</h5>
+                      @endif
+                    </td>
+                    <td>
                         <!-- Update Button -->
                         <a href="{{ route('serviceListUpdate', $item->id) }}" class="btn btn-warning btn-sm">
                             <i class="fas fa-edit"></i> Update

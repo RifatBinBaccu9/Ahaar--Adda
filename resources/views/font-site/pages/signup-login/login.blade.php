@@ -108,7 +108,7 @@
               <div class="row">
                 <div class="col-12">
                   <div class="mb-4">
-                    <h2 class="h3">Create Account</h2>
+                    <h2 class="h3">Sign In Account</h2>
                     <h3 class="fs-6 fw-normal text-secondary m-0">Get started with your free account</h3>
                   </div>
                 </div>
@@ -137,7 +137,7 @@
                   </div>
                   <div class="col-12">
                     <div class="d-grid">
-                      <button class="btn btn-primary btn-lg" type="submit">Sign up</button>
+                      <button class="btn btn-primary btn-lg" type="submit">Sign In</button>
                     </div>
                   </div>
                 </div>
@@ -145,7 +145,7 @@
               <div class="row">
                 <div class="col-12">
                   <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-4">
-                    <p class="m-0 text-secondary text-center">Already have an account? <a href="{{route('signup')}}" class="link-primary text-decoration-none">Sign in</a></p>
+                    <p class="m-0 text-secondary text-center">Already have an account? <a href="{{route('signup')}}" class="link-primary text-decoration-none">Sign Up</a></p>
                   </div>
                 </div>
               </div>

@@ -99,7 +99,6 @@ Route::post('/booking/push', [BookingController::class, 'bookingPush'])->name('b
 
 // Admin booking List section
 Route::get('/admin/bookingList', [BookingController::class, 'bookingList'])->name('bookingList');
-Route::get('/show', [BookingController::class, 'show']);
 
 
 
@@ -174,8 +173,11 @@ Route::get('/admin', function () {
 //// All Pages Setting  ////
 //admin Navbar section
 Route::get('/AllPagesSetting/navbar', [AllPagesSettingController::class, 'AllPagesSettingnavbar'])->name('navbar');
+
 Route::post('/AllPagesSetting/navbar/push', [AllPagesSettingController::class, 'navbarPush'])->name('navbarPush');
-Route::get('navbarId/{id}', [AllPagesSettingController::class, 'navbarId'])->name('navbarId');
+
+// Route::get('navbarId/{id}', [AllPagesSettingController::class, 'navbarId'])->name('navbarId');
+
 // Route::post('navbar/update', [AllPagesSettingController::class, 'navbarUpdate'])->name('navbarUpdate');
 
 

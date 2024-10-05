@@ -52,18 +52,28 @@
                             <i class="fas fa-trash-alt"></i> Delete
                         </a>
                     </td>     
-                    @if ($item->status === 'pending')
-                        <td>
+                    <td>
+                          @if ($item->status === 'rejected')
                             <form action="{{ route('posts.accept', $item->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 <button type="submit" class="btn btn-success btn-sm">Accept</button>
                             </form>
+                            @elseif ($item->status === 'accepted')
                             <form action="{{ route('posts.reject', $item->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 <button type="submit" class="btn btn-danger btn-sm">Reject</button>
                             </form>
+                          @else
+                          <form action="{{ route('posts.accept', $item->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                        </form>
+                        <form action="{{ route('posts.reject', $item->id) }}" method="POST" style="display:inline;">
+                          @csrf
+                          <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                      </form>
+                            @endif
                         </td>
-                    @endif
                 </tr>
             @endforeach
             </tbody>

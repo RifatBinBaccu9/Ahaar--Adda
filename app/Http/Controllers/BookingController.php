@@ -23,6 +23,7 @@ class BookingController extends Controller
          'message'=>'required',
         ]);
         $bookingData=[
+          
           'user_id' => $req->user_id,
           'name'=>$req->name,
           'email'=>$req->email,
@@ -34,12 +35,17 @@ class BookingController extends Controller
         return redirect()->back();
     }
 
-    public function bookingList(){
-        $bookingStor=Booking::get();
-        $user=Auth::user();
-        return view('admin-site.pages.booking.bookingList', ['BookingView'=>$bookingStor,'user'=>$user]);
-    }
-    public function show(){
-        return User::find(1)->booking;
-    }
+    public function bookingList() {
+    $bookings = Booking::with('bookings')->with('user');
+    $user = Auth::user();
+    
+    return view('admin-site.pages.booking.bookingList', [
+        'BookingView' => $bookings,
+        'user' => $user
+    ]);
+}
+
+    // public function show(){
+    //     return User::find(1)->booking;
+    // }
 }

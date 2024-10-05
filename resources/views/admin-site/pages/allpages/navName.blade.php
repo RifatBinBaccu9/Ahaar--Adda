@@ -20,14 +20,12 @@
           <form class="row g-3" action="{{route('navbarPush')}}" method="POST" >
             @csrf
             <div class="col-12">
-              @foreach ($navView as $item)
               <label for="WebsitName" class="form-label">Navbar Name</label>
-              <input type="text" name="WebsitName" value="{{$item->WebsitName}}" class=" form-control" id="WebsitName">
-              @endforeach
+              <input type="text" name="WebsitName" value="{{$navView->WebsitName ? $navView->WebsitName : ''}}" class=" form-control" id="WebsitName">
             </div>
             
             
-              <a type="submit" href="{{route('navbarId', $item->id)}}" class="btn btn-primary">Submit</a>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form><!-- Vertical Form -->
 

@@ -30,11 +30,11 @@
               <tbody>
                 @foreach ($BookingView as $item)
                 <tr>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->email}}</td>
-                    <td>{{$item->datetime}}</td>
-                    <td>{{$item->select}}</td>
-                    <td>{{$item->message}}</td>
+                    <td>{{$item->user->name}}</td>
+                    <td>{{$item->user->email}}</td>
+                    <td>{{$item->user->datetime}}</td>
+                    <td>{{$item->user->select}}</td>
+                    <td>{{$item->user->message}}</td>
                 </tr>
                 @endforeach
             </tbody>

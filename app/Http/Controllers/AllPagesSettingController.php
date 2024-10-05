@@ -13,8 +13,9 @@ class AllPagesSettingController extends Controller
 //admin Navbar section
     public function AllPagesSettingnavbar(){
         $user=Auth::user();
-        $navdata=Navbar::get();
-        return view('admin-site.pages.allpages.navName',['user'=>$user, 'navView'=>$navdata]);
+        $navdata=Navbar::first();
+        // dd($navdata);
+        return view('admin-site.pages.allpages.navName', ['user'=>$user, 'navView'=>$navdata]);
     }
     public function navbarPush(Request $req) {
          $data=[
@@ -26,13 +27,5 @@ class AllPagesSettingController extends Controller
     
         return redirect()->route('navbar');
     }
-
-    public function navbarId($id){
-        $user=Auth::user();
-        $navdata=Navbar::get();
-        $dataNav=Navbar::where(['id'=>$id])->first();
-        return view('admin-site.pages.allpages.navName', ['user'=>$user, 'NavStor'=>$dataNav, 'navView'=>$navdata]);
-    }
-    
     
 }

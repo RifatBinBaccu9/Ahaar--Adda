@@ -9,29 +9,45 @@
         </a>
       </li><!-- End Dashboard Nav -->
       
-      <li class="nav-heading">NavBar Setting</li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('/admin/navbarUpdateForm') }}">
-            <i class="bi bi-journal-text"></i>
-            <span>Update NavBar Name</span>
-        </a>
-    </li><!-- End Service Setting Nav -->
-    
+      
       <li class="nav-heading">Booking Data List</li>
       <li class="nav-item">
           <a class="nav-link collapsed" href="{{ url('/admin/bookingList') }}">
-              <i class="bi bi-layout-text-window-reverse"></i>
-              <span>Users Booking List</span>
-          </a>
-      </li><!-- End Booking Setting Nav -->
-      
-      <li class="nav-heading">Contact Data List</li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/contact/list">
-          <i class="bi bi-envelope"></i>
-          <span>Users Contact List</span>
+            <i class="bi bi-layout-text-window-reverse"></i>
+            <span>Users Booking List</span>
         </a>
-      </li><!-- End Contact Page Nav -->
+    </li><!-- End Booking Setting Nav -->
+    
+    <li class="nav-heading">Contact Data List</li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="/admin/contact/list">
+            <i class="bi bi-envelope"></i>
+            <span>Users Contact List</span>
+        </a>
+    </li><!-- End Contact Page Nav -->
+    <li class="nav-heading">NavBar Setting</li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ url('/admin/navbarUpdateForm') }}">
+          <i class="bi bi-journal-text"></i>
+          <span>Update NavBar Name</span>
+      </a>
+  </li><!-- End Service Setting Nav -->
+
+    <li class="nav-heading">Carousel Setting</li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ url('/admin/carouselUpdateForm') }}">
+          <i class="bi bi-journal-text"></i>
+          <span>Update Carousel</span>
+      </a>
+  </li><!-- End Service Setting Nav -->
+
+    <li class="nav-heading">About Setting</li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ url('/admin/aboutUpdateForm') }}">
+          <i class="bi bi-journal-text"></i>
+          <span>Update About</span>
+      </a>
+  </li><!-- End Service Setting Nav -->
 
       <li class="nav-heading">Service Setting</li>
       <li class="nav-item">

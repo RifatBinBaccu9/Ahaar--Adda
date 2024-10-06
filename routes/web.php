@@ -19,15 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
-//admin Navbar section
+//admin Navbar update section
 Route::get('/admin/navbarUpdateForm', [NavbarUpdateController::class, 'navbarUpdateForm'])->name('navbar');
 Route::post('/admin/navbarUpdate/push', [NavbarUpdateController::class, 'navbarUpdateFormPush'])->name('navbarPush');
 
-//// Carousel section ////
+//// admin Carousel update section ////
 Route::get('/admin/carouselUpdateForm', [CarouselController::class, 'carouselUpdateForm']);
+Route::post('/admin/carouselUpdate/push', [CarouselController::class, 'carouselUpdatePush'])->name('carouselUpdatePush');
 
 //// About section ////
 Route::get('/about', [AboutController::class, 'about']);
+
+// admin about update section
+Route::get('/admin/aboutUpdateForm', [AboutController::class, 'aboutUpdateForm']);
+Route::post('/admin/aboutUpdate/push', [AboutController::class, 'aboutUpdatePush'])->name('aboutUpdatePush');
 
 
 

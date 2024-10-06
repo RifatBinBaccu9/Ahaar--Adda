@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\contact;
+use App\Models\Navbar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class ContactController extends Controller
 {
     public function contact() {
         $user=Auth::user();
-        return view('font-site.pages.contact',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('font-site.pages.contact',['user'=>$user, 'navbarView'=>$navbar]);
     }
     public function contactPush(Request $req){
         $req->validate([

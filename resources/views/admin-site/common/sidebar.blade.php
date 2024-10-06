@@ -9,10 +9,11 @@
         </a>
       </li><!-- End Dashboard Nav -->
       
+      <li class="nav-heading">NavBar Setting</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('/AllPagesSetting/navbar') }}">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>NavBar</span>
+        <a class="nav-link collapsed" href="{{ url('/admin/navbarUpdateForm') }}">
+            <i class="bi bi-journal-text"></i>
+            <span>Update NavBar Name</span>
         </a>
     </li><!-- End Service Setting Nav -->
     

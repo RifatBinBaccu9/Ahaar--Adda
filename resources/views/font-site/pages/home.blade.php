@@ -4,8 +4,11 @@
        <div class="container-xxl position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Ahaar- Adda</h1>
-                <!-- <img src="/font-site/img/logo.png" alt="Logo"> -->
+                @foreach ($navbarView as $item)
+                <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>
+                    {{$item->NavbarName}}
+                </h1>
+                @endforeach <!-- <img src="/font-site/img/logo.png" alt="Logo"> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -127,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Food Menu</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="{{route('menu')}}">Food Menu</a>
                 </div>
             </div>
         </div>

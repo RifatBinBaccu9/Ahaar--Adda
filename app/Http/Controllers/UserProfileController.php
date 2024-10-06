@@ -17,7 +17,7 @@ class UserProfileController extends Controller
 {
     $user = Auth::user();
     $request->validate([
-        'email'=>'email|unique:users,email,'.Auth::id(),
+        'email'=>'email'
     ]);
     if(! is_dir(public_path('admin-site/img/profilePicture'))){
                 mkdir(public_path('admin-site/img/profilePicture'), 0777, true);
@@ -59,10 +59,10 @@ public function updatePassword(Request $req)
             'password' => Hash::make($req->new_password),
         ]);
 
-        return redirect()->back()->with('success', 'Password updated successfully.');
+        return redirect()->back();
     } else {
         
-        return redirect()->back()->with('error', 'Old password is incorrect.');
+        return redirect()->back();
     }
 }
 

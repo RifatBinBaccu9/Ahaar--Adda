@@ -6,6 +6,7 @@ use App\Models\BreakFast;
 use App\Models\Dinner;
 use App\Models\Launch;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Navbar;
 use Illuminate\Http\Request;
 
 class FoodMenuController extends Controller
@@ -13,10 +14,11 @@ class FoodMenuController extends Controller
     //// Food Menu section  ////
     public function menu() {
         $user=Auth::user();
+        $navbar=Navbar::get();
         $breakfastStor=BreakFast::get();
         $launchfastStor=Launch::get();
         $dinnerStor=Dinner::get();
-        return view('font-site.pages.menu', ['user'=>$user,'BreakfastView'=>$breakfastStor, 'launchView'=>$launchfastStor, 'dinnerView'=>$dinnerStor]);
+        return view('font-site.pages.menu', ['navbarView'=>$navbar,'user'=>$user,'BreakfastView'=>$breakfastStor, 'launchView'=>$launchfastStor, 'dinnerView'=>$dinnerStor]);
     }
 
     //Admin Add Breakfast section

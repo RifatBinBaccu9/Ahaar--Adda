@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Navbar;
 use App\Models\Team;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -10,9 +11,10 @@ class TeamController extends Controller
 {
      //// Team Member section  ////
      public function team() {
+        $navbar=Navbar::get();
         $user=Auth::user();
         $teamStor=Team::get();
-        return view('font-site.pages.team', ['user'=>$user,'teamMemberView'=>$teamStor]);
+        return view('font-site.pages.team', ['navbarView'=>$navbar,'user'=>$user,'teamMemberView'=>$teamStor]);
     }
 
     //Admin Add Team Member section

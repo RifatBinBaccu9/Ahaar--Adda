@@ -3,24 +3,26 @@
 
   <a  class="nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown" style="margin-left: 50px; padding-top: 23px;">
     <img src="{{asset($user->profilePicture)}}" alt="Profile" class="rounded-circle" height="50px">
-    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+    <span class="d-none d-md-block dropdown-toggle ps-2">{{$user->name}}</span>
   </a><!-- End Profile Iamge Icon -->
 
   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" style="margin-left: 50px; padding-top: 23px; text-align: center">
     <li class="dropdown-header">
-      <h6>Kevin Anderson</h6>
-      <span>Web Designer</span>
+      <h6>{{$user->name}}</h6>
+      <span>{{$user->email}}</span>
     </li>
     <li>
       <hr class="dropdown-divider">
     </li>
-
+    
+    @if(Auth::user()->is_tyep == 'admin')
     <li>
       <a class="dropdown-item d-flex align-items-center" href="{{url('/user/profile')}}">
         <i class="bi bi-person"></i>
         <span>My Profile</span>
       </a>
     </li>
+    @endif
     <li>
       <hr class="dropdown-divider">
     </li>
@@ -28,7 +30,7 @@
         @if(Auth::user()->is_tyep == 'admin')
         <li>
           <a class="dropdown-item d-flex align-items-center" href="{{url('/admin')}}">
-            <span>Admin Setting</span>
+            <span>Dashboard</span>
           </a>
         </li>
         @endif

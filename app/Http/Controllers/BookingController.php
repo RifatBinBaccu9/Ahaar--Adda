@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AddService;
 use App\Models\Booking;
-use App\Models\User;
+use App\Models\Navbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +11,8 @@ class BookingController extends Controller
 {
     public function booking() {
         $user=Auth::user();
-        return view('font-site.pages.booking',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('font-site.pages.booking',['user'=>$user, 'navbarView'=>$navbar]);
     }
     public function bookingPush(Request $req){
         $req->validate([
@@ -36,16 +36,13 @@ class BookingController extends Controller
     }
 
     public function bookingList() {
-    $bookings = Booking::with('bookings')->with('user');
-    $user = Auth::user();
+    $booking = Booking::with('user')->get();
+    // $user = Auth::user();
+return $booking;
     
     return view('admin-site.pages.booking.bookingList', [
-        'BookingView' => $bookings,
-        'user' => $user
+        'BookingView' => $booking,
+        // 'user' => $user
     ]);
 }
-
-    // public function show(){
-    //     return User::find(1)->booking;
-    // }
 }

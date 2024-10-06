@@ -103,21 +103,21 @@
                         <div class="row mb-3">
                           <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="name" type="text" class="form-control" id="fullName" value="Kevin Anderson">
+                            <input name="name" type="text" class="form-control" id="fullName">
                           </div>
                         </div>
     
                         <div class="row mb-3">
                           <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
                           <div class="col-md-8 col-lg-9">
-                            <textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
+                            <textarea name="about" class="form-control" id="about" style="height: 100px"></textarea>
                           </div>
                         </div>
    
                        <div class="row mb-3">
                          <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                          <div class="col-md-8 col-lg-9">
-                           <input name="email" type="email" class="form-control  @error('email') is-invalid @enderror" id="Email" value="k.anderson@example.com">
+                           <input name="email" type="email" class="form-control  @error('email') is-invalid @enderror" id="Email">
                            @error('email')
                            <div class="text-danger">{{ $message }}</div>
                          @enderror
@@ -127,14 +127,14 @@
                         <div class="row mb-3">
                           <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                            <input name="phone" type="text" class="form-control" id="Phone" >
                           </div>
                         </div>
     
                         <div class="row mb-3">
                           <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="address" type="text" class="form-control" id="Address" value="A108 Adam Street, New York, NY 535022">
+                            <input name="address" type="text" class="form-control" id="Address" >
                           </div>
                         </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Navbar;
 use Illuminate\Support\Facades\Auth;
 
 class SignupLoginControllr extends Controller
@@ -11,8 +12,9 @@ class SignupLoginControllr extends Controller
 
 //// Signup section ////
     public function signup() {
+        $navbar=Navbar::get();
         $user=Auth::user();
-        return view('font-site.pages.signup-login.signup',['user'=>$user]);
+        return view('font-site.pages.signup-login.signup',['navbarView'=>$navbar,'user'=>$user]);
     }
     public function signupPush(Request $req){
         $req->validate([
@@ -34,8 +36,9 @@ class SignupLoginControllr extends Controller
 
     // Login section
     public function login(){
+        $navbar=Navbar::get();
         $user=Auth::user();
-        return view('font-site.pages.signup-login.login',['user'=>$user]);
+        return view('font-site.pages.signup-login.login',['navbarView'=>$navbar,'user'=>$user]);
     }
     public function loginPush(Request $req){
         if(Auth::attempt(['email' =>$req->email, 'password' =>$req->password])){

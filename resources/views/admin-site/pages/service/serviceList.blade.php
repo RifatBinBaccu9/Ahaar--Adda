@@ -34,12 +34,13 @@
                     <td>{{$item->ServiceDetails}}</td>
                     <td>
                       @if ($item->status == 'accepted')
-                      <h5>Accept</h5>
-                      @elseif ($item->status == 'rejected')
-                      <h5>Reject</h5>
-                      @else
-                      <h5>Pending</h5>
-                      @endif
+    <h5 style="color: green;">Accept</h5>
+@elseif ($item->status == 'rejected')
+    <h5 style="color: red;">Reject</h5>
+@else
+    <h5 style="color: orange;">Pending</h5>
+@endif
+
                     </td>
                     <td>
                         <!-- Update Button -->

@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\AllPagesSettingController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FoodMenuController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\NavbarUpdateController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SignupLoginControllr;
 use App\Http\Controllers\TeamController;
@@ -16,9 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-Route::get('/about', function () {
-    return view('font-site.pages.about');
-});
+
+//admin Navbar section
+Route::get('/admin/navbarUpdateForm', [NavbarUpdateController::class, 'navbarUpdateForm'])->name('navbar');
+Route::post('/admin/navbarUpdate/push', [NavbarUpdateController::class, 'navbarUpdateFormPush'])->name('navbarPush');
+
+//// Carousel section ////
+Route::get('/admin/carouselUpdateForm', [CarouselController::class, 'carouselUpdateForm']);
+
+//// About section ////
+Route::get('/about', [AboutController::class, 'about']);
 
 
 
@@ -44,7 +53,7 @@ Route::post('/posts/reject{id}', [ServiceController::class, 'reject'])->name('po
 
 
 //// Food Menu section  ////
-Route::get('/menu', [FoodMenuController::class, 'menu']);
+Route::get('/menu', [FoodMenuController::class, 'menu'])->name('menu');
 
 //Admin Add Breakfast section
 Route::get('/admin/addBreakFast', [FoodMenuController::class, 'addBreakFast']);
@@ -170,18 +179,6 @@ Route::get('/admin', function () {
 
 
 
-//// All Pages Setting  ////
-//admin Navbar section
-Route::get('/AllPagesSetting/navbar', [AllPagesSettingController::class, 'AllPagesSettingnavbar'])->name('navbar');
-
-Route::post('/AllPagesSetting/navbar/push', [AllPagesSettingController::class, 'navbarPush'])->name('navbarPush');
-
-// Route::get('navbarId/{id}', [AllPagesSettingController::class, 'navbarId'])->name('navbarId');
-
-// Route::post('navbar/update', [AllPagesSettingController::class, 'navbarUpdate'])->name('navbarUpdate');
-
-
-
 //// user profile ////
 Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('userProfile');
 Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updateProfile'])->name('updateProfile');
@@ -192,3 +189,9 @@ Route::post('/user/profile/updatePassword', [UserProfileController::class, 'upda
 
 //// Mail Sent  ////
 Route::get('/SentMail', [MailController::class, 'SentMail']);
+
+
+//// user-site section ////
+Route::get('/user', function (){
+    return view('user-site');
+});

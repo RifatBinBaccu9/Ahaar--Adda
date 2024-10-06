@@ -34,12 +34,33 @@ class BookingController extends Controller
     AddBookingPeople::create($people);
     return redirect()->back();
   }
-  
+  public function addbookingPeopleData(){
+    $navbar=Navbar::get();
+    $people=AddBookingPeople::get();
+    $user=Auth::user();
+    return view('admin-site.pages.booking.peopleBookingData', [
+        'NavbarView'=>$navbar, 'user'=>$user, 'peopleView'=>$people
+    ]);
+  }
 
+public function addbookingPeopleUpdate($id){
+    $navbar=Navbar::get();
+    $user=Auth::user();
+    $peopleData=AddBookingPeople::where(['id'=>$id])->first();
+    return view('admin-site.pages.booking.peopleListUpdate', [ 'NavbarView'=>$navbar, 'user'=>$user, 'peopleUpView'=>$peopleData]);
+}
 
-
-
-
+public function addbookingPeopleDataedit (Request $req){
+    $people=[
+        'people'=>$req->people
+    ]; 
+   AddBookingPeople::where(['id'=>$req->id])->update($people);
+   return redirect()->route('addbookingPeopleData');
+}
+public function addbookingPeopleDataDelete($id){
+    AddBookingPeople::where(['id'=>$id])->delete();
+    return redirect()->back();
+}
     // admin booking List section
     public function bookingPush(Request $req){
         $req->validate([

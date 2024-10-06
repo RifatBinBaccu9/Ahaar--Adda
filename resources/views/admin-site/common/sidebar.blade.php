@@ -48,7 +48,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('/admin/serviceList') }}">
+        <a class="nav-link collapsed" href="{{ url('/admin/addbookingPeopleData') }}">
             <i class="bi bi-layout-text-window-reverse"></i>
             <span>Add Booking People List</span>
         </a>

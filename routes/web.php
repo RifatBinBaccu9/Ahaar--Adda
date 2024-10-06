@@ -135,6 +135,13 @@ Route::post('/booking/push', [BookingController::class, 'bookingPush'])->name('b
 Route::get('/admin/addbookingPeople', [BookingController::class, 'addbookingPeople']);
 Route::post('/admin/addbookingPeople/push', [BookingController::class, 'bookingPeoplePush'])->name('bookingPeoplePush');
 
+Route::get('/admin/addbookingPeopleData', [BookingController::class, 'addbookingPeopleData'])->name('addbookingPeopleData');
+
+Route::get('/admin/addbookingPeopleData/update/{id}', [BookingController::class, 'addbookingPeopleUpdate'])->name('addbookingPeopleUpdate');
+Route::post('/admin/addbookingPeopleData/edit', [BookingController::class, 'addbookingPeopleDataedit'])->name('addbookingPeopleDataedit');
+
+Route::get('/admin/addbookingPeopleData/delete/{id}', [BookingController::class, 'addbookingPeopleDataDelete'])->name('addbookingPeopleDataDelete');
+
 // Admin booking List section
 Route::get('/admin/bookingList', [BookingController::class, 'bookingList'])->name('bookingList');
 

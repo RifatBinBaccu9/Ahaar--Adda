@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Navbar;
 use App\Models\BreakFast;
 use App\Models\Dinner;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function home() {
+        $about=About::get();
         $carousel=Carousel::get();
         $navbar=Navbar::get();
         $user=Auth::user();
@@ -25,6 +27,6 @@ class HomeController extends Controller
         $breakfastStor=BreakFast::get();
         $launchfastStor=Launch::get();
         $dinnerStor=Dinner::get();
-        return view('font-site.pages.home', ['carouselView'=>$carousel, 'navbarView'=>$navbar, 'user'=>$user, 'serviceView'=>$serviceStor, 'BreakfastView'=>$breakfastStor, 'launchView'=>$launchfastStor, 'dinnerView'=>$dinnerStor,'teamMemberView'=>$teamStor, 'TestimonialView'=>$TestimonialData]);
+        return view('font-site.pages.home', ['aboutview'=>$about,'carouselView'=>$carousel, 'navbarView'=>$navbar, 'user'=>$user, 'serviceView'=>$serviceStor, 'BreakfastView'=>$breakfastStor, 'launchView'=>$launchfastStor, 'dinnerView'=>$dinnerStor,'teamMemberView'=>$teamStor, 'TestimonialView'=>$TestimonialData]);
     }
 }

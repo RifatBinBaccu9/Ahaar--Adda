@@ -25,29 +25,6 @@
             <span>Users Contact List</span>
         </a>
     </li><!-- End Contact Page Nav -->
-    <li class="nav-heading">NavBar Setting</li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="{{ url('/admin/navbarUpdateForm') }}">
-          <i class="bi bi-journal-text"></i>
-          <span>Update NavBar Name</span>
-      </a>
-  </li><!-- End Service Setting Nav -->
-
-    <li class="nav-heading">Carousel Setting</li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="{{ url('/admin/carouselUpdateForm') }}">
-          <i class="bi bi-journal-text"></i>
-          <span>Update Carousel</span>
-      </a>
-  </li><!-- End Service Setting Nav -->
-
-    <li class="nav-heading">About Setting</li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="{{ url('/admin/aboutUpdateForm') }}">
-          <i class="bi bi-journal-text"></i>
-          <span>Update About</span>
-      </a>
-  </li><!-- End Service Setting Nav -->
 
       <li class="nav-heading">Service Setting</li>
       <li class="nav-item">
@@ -63,6 +40,34 @@
           </a>
       </li><!-- End Service Setting Nav -->
       
+      <li class="nav-heading">Team Setting</li>
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('admin/addTeam') }}">
+              <i class="bi bi-journal-text"></i>
+              <span>Add Team Members</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('admin/addTeam/list') }}">
+              <i class="bi bi-layout-text-window-reverse"></i>
+              <span>Team Members List</span>
+          </a>
+      </li><!-- End Service Setting Nav -->
+
+      <li class="nav-heading">Testimonial Setting</li>
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/admin/addTestimonial') }}">
+              <i class="bi bi-journal-text"></i>
+              <span>Add Testimonial</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/admin/addTestimonial/list') }}">
+              <i class="bi bi-layout-text-window-reverse"></i>
+              <span>Testimonial List</span>
+          </a>
+      </li><!-- End Service Setting Nav -->
+
       <li class="nav-heading">Food Menu Setting</li>
       
       <!-- Breakfast Section -->
@@ -103,36 +108,29 @@
               <li><a href="{{ url('/admin/addDinner/List') }}">Dinner List</a></li>
           </ul>
       </li><!-- End Dinner Section -->
-      
-      <li class="nav-heading">Team Setting</li>
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="{{ url('admin/addTeam') }}">
-              <i class="bi bi-journal-text"></i>
-              <span>Add Team Members</span>
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="{{ url('admin/addTeam/list') }}">
-              <i class="bi bi-layout-text-window-reverse"></i>
-              <span>Team Members List</span>
-          </a>
-      </li><!-- End Service Setting Nav -->
 
-      <li class="nav-heading">Testimonial Setting</li>
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="{{ url('/admin/addTestimonial') }}">
-              <i class="bi bi-journal-text"></i>
-              <span>Add Testimonial</span>
-          </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="{{ url('/admin/addTestimonial/list') }}">
-              <i class="bi bi-layout-text-window-reverse"></i>
-              <span>Testimonial List</span>
-          </a>
-      </li><!-- End Service Setting Nav -->
 
-      
+      <li class="nav-heading">Update Setting</li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ url('/admin/navbarUpdateForm') }}">
+          <i class="bi bi-journal-text"></i>
+          <span>Update NavBar Name</span>
+      </a>
+  </li><!-- End Service Setting Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ url('/admin/carouselUpdateForm') }}">
+          <i class="bi bi-journal-text"></i>
+          <span>Update Carousel</span>
+      </a>
+  </li><!-- End Service Setting Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ url('/admin/aboutUpdateForm') }}">
+          <i class="bi bi-journal-text"></i>
+          <span>Update About</span>
+      </a>
+  </li><!-- End Service Setting Nav -->
       <li class="nav-heading">Pages Setting</li>
      
 

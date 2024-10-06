@@ -17,10 +17,26 @@
           <h5 class="card-title">Update About Setting</h5>
 
           <!-- Vertical Form -->
-          <form class="row g-3" action="{{route('carouselUpdatePush')}}" method="POST" >
+          <form class="row g-3" action="{{route('aboutUpdatePush')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-              <label for="years">Years of Experience</label>
+              <label for="image1">Image Top Left</label>
+              <input type="file" name="image1" class="form-control" id="image1">
+          </div>
+            <div class="form-group">
+              <label for="image2">Image Top Right</label>
+              <input type="file" name="image2" class="form-control" id="image2">
+          </div>
+            <div class="form-group">
+              <label for="image3"></label>
+              <input type="file" name="image3" class="form-control" id="image3">
+          </div>
+            <div class="form-group">
+              <label for="image4">Image Bottom Left</label>
+              <input type="file" name="image4" class="form-control" id="image4">
+          </div>
+            <div class="form-group">
+              <label for="years">Image bottom Right</label>
               <input type="text" name="years" class="form-control" id="years">
           </div>
             <div class="form-group">

@@ -12,7 +12,8 @@ class AboutController extends Controller
     public function about(){
         $user=Auth::user();
         $navbar=Navbar::get();
-            return view('font-site.pages.about',  ['navbarView'=>$navbar, 'user'=>$user]);
+        $about=About::get();
+            return view('font-site.pages.about',  ['aboutview'=>$about, 'navbarView'=>$navbar, 'user'=>$user]);
     }
 
     // admin update about section 
@@ -22,11 +23,76 @@ class AboutController extends Controller
     }
 
     public function aboutUpdatePush(Request $req){
+
         $about=[
             'years'=>$req->years,
             'chefs'=>$req->chefs,
             'description'=>$req->description,
         ];
+        
+        if(! is_dir(public_path('admin-site/img/aboutImage'))){
+            mkdir(public_path('admin-site/img/aboutImage'), 0777, true);
+        }
+       
+        if($req->hasFile('image1')){
+            $image1=$req->file('image1');
+            $name1=$image1->getClientOriginalName();
+            $image1Name=time(). "_" .$name1;
+
+            $image1->move(public_path('admin-site/img/aboutImage'), $image1Name);
+
+            $about['image1']='admin-site/img/aboutImage/' .$image1Name;
+        }
+
+        if(! is_dir(public_path('admin-site/img/aboutImage'))){
+            mkdir(public_path('admin-site/img/aboutImage'), 0777, true);
+        }
+       
+        if($req->hasFile('image2')){
+            $image2=$req->file('image2');
+            $name2=$image2->getClientOriginalName();
+            $image2Name=time(). "_" .$name2;
+
+            $image2->move(public_path('admin-site/img/aboutImage'), $image2Name);
+
+            $about['image2']='/admin-site/img/aboutImage/'.$image2Name;
+        }
+
+        if(! is_dir(public_path('admin-site/img/aboutImage'))){
+            mkdir(public_path('admin-site/img/aboutImage'), 0777, true);
+        }
+       
+        if($req->hasFile('image3')){
+            $image3=$req->file('image3');
+            $name3=$image3->getClientOriginalName();
+            $image3Name=time(). "_" .$name3;
+
+            $image3->move(public_path('admin-site/img/aboutImage'), $image3Name);
+
+            $about['image3']='/admin-site/img/aboutImage/'.$image3Name;
+        }
+
+        if(! is_dir(public_path('admin-site/img/aboutImage'))){
+            mkdir(public_path('admin-site/img/aboutImage'), 0777, true);
+        }
+       
+        if($req->hasFile('image4')){
+            $image4=$req->file('image4');
+            $name4=$image4->getClientOriginalName();
+            $image4Name=time(). "_" .$name4;
+
+            $image4->move(public_path('admin-site/img/aboutImage'), $image4Name);
+
+            $about['image4']='/admin-site/img/aboutImage/'.$image4Name;
+        }
+
         $aboutData=About::first();
+        if($aboutData){
+            $aboutData->update($about);
+            return redirect()->back();
+        }else{
+            About::create($about);
+            return redirect()->back();
+        }
     }
 }

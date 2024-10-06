@@ -2,8 +2,9 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="#" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Ahaar- Adda</span>
+        @foreach ($NavbarView as $item)
+        <span class="d-none d-lg-block">{{$item->NavbarName}}</span>
+        @endforeach
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -14,7 +15,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{asset($user->profilePicture)}}" alt="Profile" class="rounded-circle">
+            <img src="{{asset($user->profilePicture)}}" alt="Profile" class="rounded-circle" height="50px" width="50px">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{$user->name}}</span>
           </a><!-- End Profile Iamge Icon -->
 

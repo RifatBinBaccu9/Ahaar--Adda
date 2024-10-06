@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer;
 use App\Models\contact;
 use App\Models\Navbar;
 use Illuminate\Support\Facades\Auth;
@@ -10,9 +11,10 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     public function contact() {
+        $footer=Footer::get();
         $user=Auth::user();
         $navbar=Navbar::get();
-        return view('font-site.pages.contact',['user'=>$user, 'navbarView'=>$navbar]);
+        return view('font-site.pages.contact',['footerView'=>$footer,'user'=>$user, 'navbarView'=>$navbar]);
     }
     public function contactPush(Request $req){
         $req->validate([
@@ -33,6 +35,11 @@ class ContactController extends Controller
     public function contactList(){
         $contactSror=contact::get();
         $user=Auth::user();
-        return view('admin-site.pages.contact.contactList', ['contactView'=>$contactSror, 'user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.contact.contactList', [
+            'contactView'=>$contactSror, 
+            'user'=>$user,
+            'NavbarView'=>$navbar,
+        ]);
     }
 }

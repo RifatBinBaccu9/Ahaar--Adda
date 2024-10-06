@@ -5,20 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\AddService;
 use App\Models\Navbar;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Footer;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
     public function service() {
+        $footer=Footer::get();
         $navbar=Navbar::get();
         $serviceStor=AddService::get();
         $user=Auth::user();
-        return view('font-site.pages.service', ['navbarView'=>$navbar,'user'=>$user,'serviceView'=>$serviceStor]);
+        return view('font-site.pages.service', ['footerView'=>$footer,'navbarView'=>$navbar,'user'=>$user,'serviceView'=>$serviceStor]);
     }
     // Admin add service section  //
    public function addService() {
+    $navbar=Navbar::get();
     $user=Auth::user();
-    return view('admin-site.pages.service.addService',['user'=>$user]);
+    return view('admin-site.pages.service.addService',['NavbarView'=>$navbar,'user'=>$user]);
 }
    public function addServicePush(Request $req){
     $req->validate([
@@ -36,15 +39,17 @@ class ServiceController extends Controller
    }
    public function serviceList() {
     $serviceStor=AddService::get();
+    $navbar=Navbar::get();
     $user=Auth::user();
-    return view('admin-site.pages.service.serviceList', ['serviceView'=>$serviceStor, 'user'=>$user]);
+    return view('admin-site.pages.service.serviceList', ['NavbarView'=>$navbar,'serviceView'=>$serviceStor, 'user'=>$user]);
 }
 
 // Admin add servise update section
    public function serviceListUpdate($id){
     $user=Auth::user();
+    $navbar=Navbar::get();
   $serviceDataStor=AddService::where(['id'=>$id])->first();
-  return view('admin-site.pages.service.serviceUpdate', ['serviceDataUpdate'=>$serviceDataStor, 'user'=>$user]);
+  return view('admin-site.pages.service.serviceUpdate', ['NavbarView'=>$navbar,'serviceDataUpdate'=>$serviceDataStor, 'user'=>$user]);
    }
    public function serviceListEdit(Request $req){
     $req->validate([

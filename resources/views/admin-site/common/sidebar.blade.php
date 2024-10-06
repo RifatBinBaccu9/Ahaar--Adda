@@ -39,7 +39,21 @@
               <span>Service List</span>
           </a>
       </li><!-- End Service Setting Nav -->
-      
+
+      <li class="nav-heading">Booking People Setting</li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('/admin/addbookingPeople') }}">
+            <i class="bi bi-journal-text"></i>
+            <span>Add Number of people</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('/admin/serviceList') }}">
+            <i class="bi bi-layout-text-window-reverse"></i>
+            <span>Add Booking People List</span>
+        </a>
+    </li><!-- End Service Setting Nav -->
+
       <li class="nav-heading">Team Setting</li>
       <li class="nav-item">
           <a class="nav-link collapsed" href="{{ url('admin/addTeam') }}">

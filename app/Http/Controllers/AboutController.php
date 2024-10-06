@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer;
 use App\Models\About;
 use App\Models\Navbar;
 use Illuminate\Http\Request;
@@ -13,13 +14,18 @@ class AboutController extends Controller
         $user=Auth::user();
         $navbar=Navbar::get();
         $about=About::get();
-            return view('font-site.pages.about',  ['aboutview'=>$about, 'navbarView'=>$navbar, 'user'=>$user]);
+        $footer=Footer::get();
+            return view('font-site.pages.about',  ['footerView'=>$footer,'aboutview'=>$about, 'navbarView'=>$navbar, 'user'=>$user]);
     }
 
     // admin update about section 
     public function aboutUpdateForm(){
         $user=Auth::user();
-        return view('admin-site.pages.CreateAndUpdate.abuteUpdate', ['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.CreateAndUpdate.abuteUpdate', [
+            'user'=>$user,
+            'NavbarView'=>$navbar,
+        ]);
     }
 
     public function aboutUpdatePush(Request $req){

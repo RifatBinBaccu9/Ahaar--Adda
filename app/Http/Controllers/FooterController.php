@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Navbar;
 use App\Models\Footer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,8 @@ class FooterController extends Controller
 {
     public function footerUpdateForm(){
         $user=Auth::user();
-        return view('admin-site.pages.CreateAndUpdate.footerUpdate',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.CreateAndUpdate.footerUpdate',['NavbarView'=>$navbar,'user'=>$user]);
     }
     public function footerUpdatePush(Request $req){
         $footer=[

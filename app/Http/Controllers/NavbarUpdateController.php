@@ -10,7 +10,8 @@ class NavbarUpdateController extends Controller
 {
     public function navbarUpdateForm(){
         $user=Auth::user();
-        return view('admin-site.pages.CreateAndUpdate.NavbarUpdate',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.CreateAndUpdate.NavbarUpdate',['NavbarView'=>$navbar,'user'=>$user]);
     }
 
 

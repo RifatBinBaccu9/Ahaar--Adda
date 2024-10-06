@@ -9,11 +9,13 @@
                 <a class="btn btn-link" href="">Privacy Policy</a>
                 <a class="btn btn-link" href="">Terms & Condition</a>
             </div>
+            @foreach ($footerView as $item)
+
             <div class="col-lg-3 col-md-6">
                 <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>9000, Khulna, Bangladesh</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+880 1518 998905</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>rifatbinbaccu@gemail.com</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{$item->FooterAddress}}</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{$item->FooterPhone}}</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{$item->FooterEmail}}</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -23,16 +25,17 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                <p>09AM - 09PM</p>
-                <h5 class="text-light fw-normal">Sunday</h5>
-                <p>10AM - 08PM</p>
+                <h5 class="text-light fw-normal">{{$item->OpeningDayOption1}}</h5>
+                <p>{{$item->OpeningTimeOption1}}</p>
+                <h5 class="text-light fw-normal">{{$item->OpeningDayOption2}}</h5>
+                <p>{{$item->OpeningTimeOption2}}</p>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
-                <p>At Ahaar Adda, we believe in delivering a culinary experience like no other. Our restaurant is dedicated to 
-                    serving delicious meals made from the freshest ingredients.</p>
+                <p>{{$item->FooterNewsletter}}</p>
             </div>
+                            
+            @endforeach
         </div>
     </div>
     <div class="container">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Navbar;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ class UserProfileController extends Controller
 {
     public function userProfile(){
         $user=Auth::user();
-        return view('admin-site.pages.profile.profile',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.profile.profile',['NavbarView'=>$navbar,'user'=>$user]);
     }
     public function updateProfile(Request $request)
 {

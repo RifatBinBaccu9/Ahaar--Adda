@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ContactController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+//// font-site section ////
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 
@@ -129,6 +131,10 @@ Route::get('/admin/addDinner/List/delete/{id}', [FoodMenuController::class, 'Din
 Route::get('/booking', [BookingController::class, 'booking']);
 Route::post('/booking/push', [BookingController::class, 'bookingPush'])->name('bookingPush');
 
+// Admin add Number of people section
+Route::get('/admin/addbookingPeople', [BookingController::class, 'addbookingPeople']);
+Route::post('/admin/addbookingPeople/push', [BookingController::class, 'bookingPeoplePush'])->name('bookingPeoplePush');
+
 // Admin booking List section
 Route::get('/admin/bookingList', [BookingController::class, 'bookingList'])->name('bookingList');
 
@@ -187,15 +193,8 @@ Route::post('/admin/footerUpdatePush', [FooterController::class, 'footerUpdatePu
 
 
 
-
-
 //// Admin-site secton ////
-Route::get('/admin', function () {
-    $user=Auth::user();
-    return view('admin-site.pages.home',[
-        'user'=>$user
-    ]);
-})->name('admin')->middleware('admin');
+Route::get('/admin', [AdminController::class, 'admin'])->name('admin')->middleware('admin');
 
 
 

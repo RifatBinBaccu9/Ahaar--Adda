@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Navbar;
+use App\Models\Footer;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
@@ -12,13 +13,15 @@ class TestimonialController extends Controller
     public function testimonial() {
         $navbar=Navbar::get();
         $user=Auth::user();
+        $footer=Footer::get();
         $TestimonialData=Testimonial::get();
-        return view('font-site.pages.testimonial', ['navbarView'=>$navbar,'user'=>$user,'TestimonialView'=>$TestimonialData]);
+        return view('font-site.pages.testimonial', ['footerView'=>$footer,'navbarView'=>$navbar,'user'=>$user,'TestimonialView'=>$TestimonialData]);
     }
 // admin add testimonial section
     public function addTestimonial() {
         $user=Auth::user();
-        return view('admin-site.pages.testimonial.addTestimonial',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.testimonial.addTestimonial',['NavbarView'=>$navbar,'user'=>$user]);
     }
     public function addTestimonialPush(Request $req){
         $req->validate([
@@ -53,15 +56,17 @@ class TestimonialController extends Controller
     // admin testimonial list section
     public function TestimonialList(){
         $user=Auth::user();
+        $navbar=Navbar::get();
         $TestimonialData=Testimonial::get();
-        return view('admin-site.pages.testimonial.TestimonialList', ['TestimonialView'=>$TestimonialData, 'user'=>$user]);
+        return view('admin-site.pages.testimonial.TestimonialList', ['NavbarView'=>$navbar,'TestimonialView'=>$TestimonialData, 'user'=>$user]);
     }
 
     // admin Testimonial update section
     public function TestimonialListupdate($id){
         $user=Auth::user();
+        $navbar=Navbar::get();
         $TestimonialStor=Testimonial::where(['id'=>$id])->first();
-        return view('admin-site.pages.testimonial.TestimonialListupdate', ['TestimonialStorage'=>$TestimonialStor, 'user'=>$user]);
+        return view('admin-site.pages.testimonial.TestimonialListupdate', ['NavbarView'=>$navbar,'TestimonialStorage'=>$TestimonialStor, 'user'=>$user]);
     }
     public function TestimonialListEdit(Request $req){
         if(! is_dir(public_path('admin-site/img/Testimonial'))){

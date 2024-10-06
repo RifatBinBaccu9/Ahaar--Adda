@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Navbar;
 use App\Models\Team;
+use App\Models\Footer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -13,14 +14,16 @@ class TeamController extends Controller
      public function team() {
         $navbar=Navbar::get();
         $user=Auth::user();
+        $footer=Footer::get();
         $teamStor=Team::get();
-        return view('font-site.pages.team', ['navbarView'=>$navbar,'user'=>$user,'teamMemberView'=>$teamStor]);
+        return view('font-site.pages.team', ['footerView'=>$footer,'navbarView'=>$navbar,'user'=>$user,'teamMemberView'=>$teamStor]);
     }
 
     //Admin Add Team Member section
     public function addTeam(){
+        $navbar=Navbar::get();
         $user=Auth::user();
-        return view('admin-site.pages.Team-Members.addTeam',['user'=>$user]);
+        return view('admin-site.pages.Team-Members.addTeam',['NavbarView'=>$navbar,'user'=>$user]);
     }
 
     public function addTeamPush(Request $req){
@@ -59,16 +62,18 @@ class TeamController extends Controller
 
     // Admin team List 
     public function TeamList(){
+        $navbar=Navbar::get();
         $user=Auth::user();
         $teamStor=Team::get();
-        return view('admin-site.pages.Team-Members.teamList', ['teamMemberView'=>$teamStor, 'user'=>$user]);
+        return view('admin-site.pages.Team-Members.teamList', ['NavbarView'=>$navbar,'teamMemberView'=>$teamStor, 'user'=>$user]);
     }
     
     //Admin team List update section
     public function TeamListUpdate($id){
         $user=Auth::user();
+        $navbar=Navbar::get();
         $teamUpdate=Team::where(['id'=>$id])->first();
-        return view('admin-site.pages.Team-Members.teamListUpdate', ['teamStorage'=>$teamUpdate, 'user'=>$user]);
+        return view('admin-site.pages.Team-Members.teamListUpdate', ['NavbarView'=>$navbar,'teamStorage'=>$teamUpdate, 'user'=>$user]);
     }
     public function TeamListEdit(Request $req){
   

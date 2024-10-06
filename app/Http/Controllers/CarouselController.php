@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carousel;
+use App\Models\Navbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +11,11 @@ class CarouselController extends Controller
 {
     public function carouselUpdateForm (){
         $user=Auth::user();
-     return view('admin-site.pages.CreateAndUpdate.carouselUpdate', ['user'=>$user]);
+        $navbar=Navbar::get();
+     return view('admin-site.pages.CreateAndUpdate.carouselUpdate', [
+        'user'=>$user,
+        'NavbarView'=>$navbar,
+    ]);
     }
     
     public function carouselUpdatePush(Request $req){

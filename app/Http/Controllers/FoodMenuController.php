@@ -7,24 +7,30 @@ use App\Models\Dinner;
 use App\Models\Launch;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Navbar;
+use App\Models\Footer;
 use Illuminate\Http\Request;
 
 class FoodMenuController extends Controller
 {
     //// Food Menu section  ////
     public function menu() {
+        $footer=Footer::get();
         $user=Auth::user();
         $navbar=Navbar::get();
         $breakfastStor=BreakFast::get();
         $launchfastStor=Launch::get();
         $dinnerStor=Dinner::get();
-        return view('font-site.pages.menu', ['navbarView'=>$navbar,'user'=>$user,'BreakfastView'=>$breakfastStor, 'launchView'=>$launchfastStor, 'dinnerView'=>$dinnerStor]);
+        return view('font-site.pages.menu', ['footerView'=>$footer,'navbarView'=>$navbar,'user'=>$user,'BreakfastView'=>$breakfastStor, 'launchView'=>$launchfastStor, 'dinnerView'=>$dinnerStor]);
     }
 
     //Admin Add Breakfast section
     public function addBreakFast(){
         $user=Auth::user();
-        return view('admin-site.pages.Food-Menu.Breakfast-Item.addBreakfastItem',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.Food-Menu.Breakfast-Item.addBreakfastItem',[
+            'user'=>$user,
+            'NavbarView'=>$navbar,
+        ]);
     }
     public function addBreakFastPush(Request $req){
         $req->validate([
@@ -61,14 +67,16 @@ class FoodMenuController extends Controller
     public function BreakFastList(){
         $breakfastStor=BreakFast::get();
         $user=Auth::user();
-        return view('admin-site.pages.Food-Menu.Breakfast-Item.BreakfastList', ['user'=>$user, 'BreakfastView'=>$breakfastStor]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.Food-Menu.Breakfast-Item.BreakfastList', ['NavbarView'=>$navbar,'user'=>$user, 'BreakfastView'=>$breakfastStor]);
     }
     
     //Admin Breakfast List update section
     public function BreakFastListUpdate($id){
         $user=Auth::user();
+        $navbar=Navbar::get();
         $breakfastUpdate=BreakFast::where(['id'=>$id])->first();
-        return view('admin-site.pages.Food-Menu.Breakfast-Item.breakfastUpdate', ['Breakfast'=>$breakfastUpdate, 'user'=>$user]);
+        return view('admin-site.pages.Food-Menu.Breakfast-Item.breakfastUpdate', ['NavbarView'=>$navbar,'Breakfast'=>$breakfastUpdate, 'user'=>$user]);
     }
     public function BreakFastListEdit(Request $req){
   
@@ -105,7 +113,8 @@ class FoodMenuController extends Controller
     //Admin Add Launch section
     public function addLaunch(){
         $user=Auth::user();
-        return view('admin-site.pages.Food-Menu.Launch.addLaunch',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.Food-Menu.Launch.addLaunch',['user'=>$user, 'NavbarView'=>$navbar]);
     }
     public function addLaunchPush(Request $req){
         $req->validate([
@@ -142,14 +151,16 @@ class FoodMenuController extends Controller
     public function LaunchList(){
         $launchfastStor=Launch::get();
         $user=Auth::user();
-        return view('admin-site.pages.Food-Menu.Launch.launchList', ['launchView'=>$launchfastStor, 'user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.Food-Menu.Launch.launchList', ['NavbarView'=>$navbar,'launchView'=>$launchfastStor, 'user'=>$user]);
     }
     
     //Admin launch List update section
     public function LaunchListUpdate($id){
         $user=Auth::user();
+        $navbar=Navbar::get();
         $LaunchUpdate=Launch::where(['id'=>$id])->first();
-        return view('admin-site.pages.Food-Menu.Launch.LaunchListUpdate', ['Launch'=>$LaunchUpdate, 'user'=>$user]);
+        return view('admin-site.pages.Food-Menu.Launch.LaunchListUpdate', ['NavbarView'=>$navbar,'Launch'=>$LaunchUpdate, 'user'=>$user]);
     }
 
     public function LaunchListEdit(Request $req){
@@ -187,7 +198,8 @@ class FoodMenuController extends Controller
     //Admin Add Launch section
     public function addDinner(){
         $user=Auth::user();
-        return view('admin-site.pages.Food-Menu.Dinner.addDinner',['user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.Food-Menu.Dinner.addDinner',['NavbarView'=>$navbar,'user'=>$user]);
     }
     public function addDinnerPush(Request $req){
         $req->validate([
@@ -224,14 +236,16 @@ class FoodMenuController extends Controller
     public function DinnerList(){
         $user=Auth::user();
         $dinnerStor=Dinner::get();
-        return view('admin-site.pages.Food-Menu.Dinner.dinnerList', ['dinnerView'=>$dinnerStor, 'user'=>$user]);
+        $navbar=Navbar::get();
+        return view('admin-site.pages.Food-Menu.Dinner.dinnerList', ['NavbarView'=>$navbar,'dinnerView'=>$dinnerStor, 'user'=>$user]);
     }
     
 //Admin launch List update section
     public function DinnerListUpdate($id){
         $user=Auth::user();
+        $navbar=Navbar::get();
         $DinnerUpdate=Dinner::where(['id'=>$id])->first();
-        return view('admin-site.pages.Food-Menu.Dinner.dinnerUpdete', ['Dinner'=>$DinnerUpdate, 'user'=>$user]);
+        return view('admin-site.pages.Food-Menu.Dinner.dinnerUpdete', ['NavbarView'=>$navbar,'Dinner'=>$DinnerUpdate, 'user'=>$user]);
     }
 
     public function DinnerListEdit(Request $req){

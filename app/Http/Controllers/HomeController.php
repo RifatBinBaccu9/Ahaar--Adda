@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function home() {
-        
+
         $footer=Footer::get();
         $about=About::get();
         $carousel=Carousel::get();
@@ -32,7 +32,7 @@ class HomeController extends Controller
         $dinnerStor=Dinner::get();
 
         return view('font-site.pages.home', [
-        'footer'=>$footer,
+        'footerView'=>$footer,
         'aboutview'=>$about,
         'carouselView'=>$carousel,
         'navbarView'=>$navbar, 

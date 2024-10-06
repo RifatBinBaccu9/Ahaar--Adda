@@ -39,7 +39,7 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-12 text-center text-md-center mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Rifat Mia </a>, All Right Reserved.
+                    Copyright © 2024 - All right reserved by Md.Rifat Mia
                 </div>
             </div>
         </div>

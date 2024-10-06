@@ -5,6 +5,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FoodMenuController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NavbarUpdateController;
@@ -23,9 +24,26 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/admin/navbarUpdateForm', [NavbarUpdateController::class, 'navbarUpdateForm'])->name('navbar');
 Route::post('/admin/navbarUpdate/push', [NavbarUpdateController::class, 'navbarUpdateFormPush'])->name('navbarPush');
 
+
+
+//// Sign Up section  ////
+Route::get('/signup', [SignupLoginControllr::class, 'signup'])->name('signup');
+Route::post('/signup/push', [SignupLoginControllr::class, 'signupPush'])->name('signupPush');
+
+// Login section
+Route::get('/login', [SignupLoginControllr::class, 'login'])->name('login');
+Route::post('/login/push', [SignupLoginControllr::class, 'loginPush'])->name('loginPush');
+
+// Log Out section
+Route::get('/logout', [SignupLoginControllr::class, 'logout'])->name('logout');
+
+
+
 //// admin Carousel update section ////
 Route::get('/admin/carouselUpdateForm', [CarouselController::class, 'carouselUpdateForm']);
 Route::post('/admin/carouselUpdate/push', [CarouselController::class, 'carouselUpdatePush'])->name('carouselUpdatePush');
+
+
 
 //// About section ////
 Route::get('/about', [AboutController::class, 'about']);
@@ -55,6 +73,7 @@ Route::get('/admin/serviceList/delete/{id}', [ServiceController::class, 'service
 
 Route::post('/posts/accept/{id}', [ServiceController::class, 'accept'])->name('posts.accept');
 Route::post('/posts/reject{id}', [ServiceController::class, 'reject'])->name('posts.reject');
+
 
 
 //// Food Menu section  ////
@@ -106,7 +125,6 @@ Route::get('/admin/addDinner/List/delete/{id}', [FoodMenuController::class, 'Din
 
 
 
-
 //// Booking Section ////
 Route::get('/booking', [BookingController::class, 'booking']);
 Route::post('/booking/push', [BookingController::class, 'bookingPush'])->name('bookingPush');
@@ -134,6 +152,7 @@ Route::post('admin/addTeam/list/edit', [TeamController::class, 'TeamListEdit'])-
 Route::get('admin/addTeam/delete/{id}', [TeamController::class, 'TeamListDelete'])->name('TeamListDelete');
 
 
+
 //// testimonial section  ////
 Route::get('/testimonial', [TestimonialController::class, 'testimonial']);
 
@@ -152,6 +171,7 @@ Route::post('/admin/addTestimonial/list/edit', [TestimonialController::class, 'T
 Route::get('/admin/addTestimonial/list/delete/{id}', [TestimonialController::class, 'TestimonialListdelete'])->name('TestimonialListdelete');
 
 
+
 ////  Contact section  ////
 Route::get('/contact', [ContactController::class, 'contact']);
 Route::post('/contact/push', [ContactController::class, 'contactPush'])->name('contactPush');
@@ -161,17 +181,10 @@ Route::get('/admin/contact/list', [ContactController::class, 'contactList'])->na
 
 
 
+//// admin Footer update section ////
+Route::get('/admin/footerUpdateForm', [FooterController::class, 'footerUpdateForm']);
+Route::post('/admin/footerUpdatePush', [FooterController::class, 'footerUpdatePush'])->name('footerUpdatePush');
 
-//// Sign Up section  ////
-Route::get('/signup', [SignupLoginControllr::class, 'signup'])->name('signup');
-Route::post('/signup/push', [SignupLoginControllr::class, 'signupPush'])->name('signupPush');
-
-// Login section
-Route::get('/login', [SignupLoginControllr::class, 'login'])->name('login');
-Route::post('/login/push', [SignupLoginControllr::class, 'loginPush'])->name('loginPush');
-
-// Log Out section
-Route::get('/logout', [SignupLoginControllr::class, 'logout'])->name('logout');
 
 
 
@@ -179,7 +192,9 @@ Route::get('/logout', [SignupLoginControllr::class, 'logout'])->name('logout');
 //// Admin-site secton ////
 Route::get('/admin', function () {
     $user=Auth::user();
-    return view('admin-site.pages.home',['user'=>$user]);
+    return view('admin-site.pages.home',[
+        'user'=>$user
+    ]);
 })->name('admin')->middleware('admin');
 
 
@@ -192,8 +207,10 @@ Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updat
 Route::post('/user/profile/updatePassword', [UserProfileController::class, 'updatePassword'])->name('updatePassword');
 
 
+
 //// Mail Sent  ////
 Route::get('/SentMail', [MailController::class, 'SentMail']);
+
 
 
 //// user-site section ////

@@ -131,6 +131,13 @@
           <span>Update About</span>
       </a>
   </li><!-- End Service Setting Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ url('/admin/footerUpdateForm') }}">
+          <i class="bi bi-journal-text"></i>
+          <span>Update Footer</span>
+      </a>
+  </li><!-- End Service Setting Nav -->
       <li class="nav-heading">Pages Setting</li>
      
 

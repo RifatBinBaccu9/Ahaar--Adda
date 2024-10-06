@@ -9,6 +9,7 @@ use App\Models\Dinner;
 use App\Models\Launch;
 use App\Models\AddService;
 use App\Models\Carousel;
+use App\Models\Footer;
 use App\Models\Team;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function home() {
+        
+        $footer=Footer::get();
         $about=About::get();
         $carousel=Carousel::get();
         $navbar=Navbar::get();
@@ -27,6 +30,18 @@ class HomeController extends Controller
         $breakfastStor=BreakFast::get();
         $launchfastStor=Launch::get();
         $dinnerStor=Dinner::get();
-        return view('font-site.pages.home', ['aboutview'=>$about,'carouselView'=>$carousel, 'navbarView'=>$navbar, 'user'=>$user, 'serviceView'=>$serviceStor, 'BreakfastView'=>$breakfastStor, 'launchView'=>$launchfastStor, 'dinnerView'=>$dinnerStor,'teamMemberView'=>$teamStor, 'TestimonialView'=>$TestimonialData]);
+
+        return view('font-site.pages.home', [
+        'footer'=>$footer,
+        'aboutview'=>$about,
+        'carouselView'=>$carousel,
+        'navbarView'=>$navbar, 
+        'user'=>$user, 
+        'serviceView'=>$serviceStor, 
+        'BreakfastView'=>$breakfastStor, 
+        'launchView'=>$launchfastStor, 
+        'dinnerView'=>$dinnerStor,
+        'teamMemberView'=>$teamStor, 
+        'TestimonialView'=>$TestimonialData]);
     }
 }

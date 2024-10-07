@@ -21,9 +21,11 @@ class NavbarUpdateController extends Controller
             $navbar = Navbar::first(); 
             if ($navbar) {
                 $navbar->update($data);
+                toastr()->success('Navbar Name Data Update Successful.');
                 return redirect()->back();
             } else {
                 Navbar::create($data);
+                toastr()->success('Navbar Name Data Create Successful.');
                 return redirect()->back();
             }
     }

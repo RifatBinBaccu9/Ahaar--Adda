@@ -50,6 +50,7 @@ class TestimonialController extends Controller
               $testimonial['TestimonialPicture']='admin-site/img/Testimonial/'.$TestimonialPictureName;
           }
           Testimonial::create($testimonial);
+          toastr()->success('Testimonial Create Successful.');
           return redirect()->back();
     }
 
@@ -89,11 +90,13 @@ class TestimonialController extends Controller
             $testimonial['TestimonialPicture']='admin-site/img/Testimonial/'.$TestimonialPictureName;
         }
         Testimonial::where(['id'=>$req->id])->update($testimonial);
+        toastr()->success('Testimonial Update Successful.');
         return redirect()->route('TestimonialList');
     }
 
     public function TestimonialListdelete($id){
         Testimonial::where(['id'=>$id])->delete();
+        toastr()->success('Testimonial Delete Successful.');
         return redirect()->back();
     }
 }

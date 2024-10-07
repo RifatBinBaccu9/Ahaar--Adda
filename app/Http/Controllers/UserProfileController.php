@@ -43,7 +43,7 @@ class UserProfileController extends Controller
                 $dataup['profilePicture'] = 'admin-site/img/profilePicture/' . $imageName;
             } 
     $user->update($dataup);
-
+    toastr()->success('Your Profile Update Successful.');
     return redirect()->back();
 }
 
@@ -60,10 +60,10 @@ public function updatePassword(Request $req)
         User::whereId(Auth::user()->id)->update([
             'password' => Hash::make($req->new_password),
         ]);
-
+        toastr()->success('Your Password Update Successful.');
         return redirect()->back();
     } else {
-        
+        toastr()->error('Your Password Update Failed.');
         return redirect()->back();
     }
 }

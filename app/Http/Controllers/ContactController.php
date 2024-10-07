@@ -30,6 +30,7 @@ class ContactController extends Controller
          'message'=>$req->message,
         ];
         contact::create($contactData);
+        toastr()->success('Your Information Submit Successful.');
         return redirect()->back();
     }
     public function contactList(){

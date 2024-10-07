@@ -24,18 +24,54 @@
                     <th>Email</th>
                     <th>Date $ Time</th>
                     <th>People</th>
-                    <th>message</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
               <tbody>
                 @foreach ($BookingView as $item)
                 <tr>
-                    <td>{{$item->user->name}}</td>
+                    <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->datetime}}</td>
                     <td>{{$item->select}}</td>
                     <td>{{$item->message}}</td>
+                    <td>
+
+                      @if ($item->status == 'accepted')
+                          <h5 style="color: green;">Accept</h5>
+                      @elseif ($item->status == 'rejected')
+                          <h5 style="color: red;">Reject</h5>
+                      @else
+                          <h5 style="color: orange;">Pending</h5>
+                      @endif
+
+                    </td>
+                    <td>
+                      @if ($item->status === 'rejected')
+                        <form action="{{ route('posts.accept', $item->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                        </form>
+                        @elseif ($item->status === 'accepted')
+                        <form action="{{ route('posts.reject', $item->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                      @else
+                      <form action="{{ route('posts.accept', $item->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                    </form>
+                    <form action="{{ route('posts.reject', $item->id) }}" method="POST" style="display:inline;">
+                      @csrf
+                      <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                  </form>
+                        @endif
+                    </td>
                 </tr>
+
                 @endforeach
             </tbody>
             </table>

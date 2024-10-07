@@ -26,9 +26,11 @@ class CarouselController extends Controller
         $carousel=Carousel::first();
         if($carousel){
             $carousel->update($carouselData);
+            toastr()->success('Carousel Data Update Successful.');
             return redirect()->back();
         }else{
             Carousel::create($carouselData);
+            toastr()->success('Carousel Data Create Successful.');
             return redirect()->back();
         }
     }

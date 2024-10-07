@@ -66,7 +66,7 @@
                         <h1 class="text-white mb-4">Book A Table Online</h1>
                         <form action="{{route('bookingPush')}}" method="POST">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                          
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -98,9 +98,11 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-select @error('select') is-invalid @enderror" name="select" id="select1">
-                                          <option value="1">People 1</option>
-                                          <option value="2">People 2</option>
-                                          <option value="3">People 3</option>
+                                          @foreach ($bookingView as $item)
+                                          
+                                          <option value="{{$item->people}}">people{{$item->people}}</option>
+                                          @endforeach
+                                    
                                         </select>
                                         <label for="select1">No Of People</label>
                                         @error('select')

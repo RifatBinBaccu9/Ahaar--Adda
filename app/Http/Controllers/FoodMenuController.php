@@ -60,6 +60,7 @@ class FoodMenuController extends Controller
             $breakfast['foodPicture']='admin-site/img/Breakfast/'.$foodPictureName;
         }
         BreakFast::create($breakfast);
+        toastr()->success('Bareakfast Item Create Successful.');
         return redirect()->back();
     }
 
@@ -100,11 +101,13 @@ class FoodMenuController extends Controller
               $breakfast['foodPicture']='admin-site/img/Breakfast/'.$foodPictureName;
           }
           BreakFast::where(['id'=>$req->id])->update($breakfast);
+          toastr()->success('Bareakfast Item Update Successful.');
           return redirect()->route('BreakFastList');
     }
     //Admin Breakfast List delete section
     public function BreakFastListDelete($id){
         BreakFast::where(['id'=>$id])->delete();
+        toastr()->success('Breakfast delete Successful.');
         return redirect()->back();
     }
 
@@ -144,6 +147,7 @@ class FoodMenuController extends Controller
             $launch['foodPicture']='admin-site/img/Launch/'.$foodPictureName;
         }
         Launch::create($launch);
+        toastr()->success('Launch Item Create Successful.');
         return redirect()->back();
     }
 
@@ -185,11 +189,13 @@ class FoodMenuController extends Controller
               $launch['foodPicture']='admin-site/img/Launch/'.$foodPictureName;
           }
           Launch::where(['id'=>$req->id])->update($launch);
+          toastr()->success('Launch Item Create Successful.');
           return redirect()->route('LaunchList');
     }
     // //Admin LaunchListDelete List delete section
     public function LaunchListDelete($id){
         Launch::where(['id'=>$id])->delete();
+        toastr()->success('Launch delete Successful.');
         return redirect()->back();
     }
 
@@ -229,6 +235,7 @@ class FoodMenuController extends Controller
             $dinner['foodPicture']='admin-site/img/Dinner/'.$foodPictureName;
         }
         Dinner::create($dinner);
+        toastr()->success('Dinner Item Create Successful.');
         return redirect()->back();
     }
 
@@ -270,11 +277,13 @@ class FoodMenuController extends Controller
               $dinner['foodPicture']='admin-site/img/Dinner/'.$foodPictureName;
           }
           Dinner::where(['id'=>$req->id])->update($dinner);
+          toastr()->success('Dinner Item Update Successful.');
           return redirect()->route('DinnerList');
     }
 //Admin LaunchListDelete List delete section
       public function DinnerListDelete($id){
         Dinner::where(['id'=>$id])->delete();
+        toastr()->success('Dinner delete Successful.');
         return redirect()->back();
       }
 }

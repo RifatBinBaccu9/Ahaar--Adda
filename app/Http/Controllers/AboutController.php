@@ -95,9 +95,11 @@ class AboutController extends Controller
         $aboutData=About::first();
         if($aboutData){
             $aboutData->update($about);
+            toastr()->success('About Data Update Successful.');
             return redirect()->back();
         }else{
             About::create($about);
+            toastr()->success('About Data Create Successful.');
             return redirect()->back();
         }
     }

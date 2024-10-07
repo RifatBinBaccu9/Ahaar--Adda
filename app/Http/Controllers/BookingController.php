@@ -14,8 +14,9 @@ class BookingController extends Controller
     public function booking() {
         $user=Auth::user();
         $navbar=Navbar::get();
+        $booking=AddBookingPeople::get();
         $footer=Footer::get();
-        return view('font-site.pages.booking',['footerView'=>$footer,'user'=>$user, 'navbarView'=>$navbar]);
+        return view('font-site.pages.booking',['bookingView'=>$booking, 'footerView'=>$footer,'user'=>$user, 'navbarView'=>$navbar]);
     }
 
     // admin add booking People section
@@ -71,8 +72,6 @@ public function addbookingPeopleDataDelete($id){
          'message'=>'required',
         ]);
         $bookingData=[
-          
-          'user_id' => $req->user_id,
           'name'=>$req->name,
           'email'=>$req->email,
           'datetime'=>$req->datetime,
@@ -80,19 +79,40 @@ public function addbookingPeopleDataDelete($id){
           'message'=>$req->message,
         ];
         Booking::create($bookingData);
+        toastr()->success('Your Booking Successful.');
         return redirect()->back();
+        dd($bookingData);
     }
 
     public function bookingList() {
     $navbar=Navbar::get();
-    $booking = Booking::with('user')->get();
-    // $user = Auth::user();
-return $booking;
+    $user=Auth::user();
+    $booking = Booking::get();
     
     return view('admin-site.pages.booking.bookingList', [
         'BookingView' => $booking,
         'NavbarView'=>$navbar,
-        // 'user' => $user
+        'user' => $user
     ]);
 }
+
+ // admin status accepted 
+ public function accept($id)
+ {
+     $post = Booking::findOrFail($id);
+     $post->status = 'accepted';
+     $post->save();
+
+     return redirect()->back();
+ }
+
+ // admin status rejected 
+ public function reject($id)
+ {
+     $post = Booking::findOrFail($id);
+     $post->status = 'rejected';
+     $post->save();
+
+     return redirect()->back();
+ }
 }

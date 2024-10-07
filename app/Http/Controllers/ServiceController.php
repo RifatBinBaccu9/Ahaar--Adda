@@ -35,6 +35,7 @@ class ServiceController extends Controller
         'ServiceDetails'=>$req->ServiceDetails,
     ];
     AddService::create($serviceData);
+    toastr()->success('Service Create Successful.');
     return redirect()->back();
    }
    public function serviceList() {
@@ -63,34 +64,15 @@ class ServiceController extends Controller
         'ServiceDetails'=>$req->ServiceDetails,
     ];
     AddService::where(['id'=>$req->id])->update($serviceData);
+    toastr()->success('Service Update Successful.');
     return redirect()->route('serviceList');
    }
    
 //Admin delete section
    public function serviceListDelete($id){
     AddService::where(['id'=>$id])->delete();
+    toastr()->success('Service delete Successful.');
     return redirect()->back();
-   }
-
-   
-   // admin status accepted 
-   public function accept($id)
-   {
-       $post = AddService::findOrFail($id);
-       $post->status = 'accepted';
-       $post->save();
-
-       return redirect()->back();
-   }
-
-   // admin status rejected 
-   public function reject($id)
-   {
-       $post = AddService::findOrFail($id);
-       $post->status = 'rejected';
-       $post->save();
-
-       return redirect()->back();
    }
 
 }

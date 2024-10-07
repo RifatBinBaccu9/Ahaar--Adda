@@ -73,8 +73,6 @@ Route::post('/admin/serviceList/edit', [ServiceController::class, 'serviceListEd
 // Admin service list delate section
 Route::get('/admin/serviceList/delete/{id}', [ServiceController::class, 'serviceListDelete'])->name('serviceListDelete');
 
-Route::post('/posts/accept/{id}', [ServiceController::class, 'accept'])->name('posts.accept');
-Route::post('/posts/reject{id}', [ServiceController::class, 'reject'])->name('posts.reject');
 
 
 
@@ -144,6 +142,8 @@ Route::get('/admin/addbookingPeopleData/delete/{id}', [BookingController::class,
 
 // Admin booking List section
 Route::get('/admin/bookingList', [BookingController::class, 'bookingList'])->name('bookingList');
+Route::post('/admin/bookingList/accept/{id}', [BookingController::class, 'accept'])->name('posts.accept');
+Route::post('/admin/bookingList/reject{id}', [BookingController::class, 'reject'])->name('posts.reject');
 
 
 
@@ -221,5 +221,5 @@ Route::get('/SentMail', [MailController::class, 'SentMail']);
 
 //// user-site section ////
 Route::get('/user', function (){
-    return view('user-site');
+    return view('user-site.pages.bookingList');
 });

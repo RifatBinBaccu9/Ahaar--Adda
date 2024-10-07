@@ -29,9 +29,11 @@ class FooterController extends Controller
         $footerData=Footer::first();
         if($footerData){
             $footerData->update($footer);
+            toastr()->success('Footer Data Update Successful.');
             return redirect()->back();
         }else{
             Footer::create($footer);
+            toastr()->success('Footer Data Create Successful.');
             return redirect()->back();
         }
     }

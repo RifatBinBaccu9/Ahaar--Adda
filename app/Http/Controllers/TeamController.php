@@ -57,6 +57,7 @@ class TeamController extends Controller
             $team['MemberPicture']='admin-site/img/team/'.$MemberPictureName;
         }
         Team::create($team);
+        toastr()->success('Team Create Successful.');
         return redirect()->back();
     }
 
@@ -99,11 +100,13 @@ class TeamController extends Controller
             $team['MemberPicture']='admin-site/img/team/'.$MemberPictureName;
         }
           Team::where(['id'=>$req->id])->update($team);
+          toastr()->success('Team Update Successful.');
           return redirect()->route('TeamList');
     }
     //Admin Breakfast List delete section
     public function TeamListDelete($id){
         Team::where(['id'=>$id])->delete();
+        toastr()->success('Team Delete Successful.');
         return redirect()->back();
     }
 

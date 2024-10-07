@@ -22,7 +22,7 @@ class SignupLoginControllr extends Controller
         $req->validate([
         'name'=>'required|max:17',
         'email' =>  'required|email|unique:users,email',
-        'password'=>'required',
+        'password'=>'required|min:8',
         'password_confirmation'=>'required|same:password',
         'iAgree'=>'required',
         ]);
@@ -32,7 +32,9 @@ class SignupLoginControllr extends Controller
        'password'=>$req->password,
        'iAgree'=>$req->iAgree,
         ];
+
         User::create($signupData);
+        toastr()->success('Create Your Account Successful');
         return redirect()->route('login');
     }
 
@@ -46,18 +48,23 @@ class SignupLoginControllr extends Controller
     public function loginPush(Request $req){
         if(Auth::attempt(['email' =>$req->email, 'password' =>$req->password])){
            if(Auth::user()->is_tyep == 'admin'){
-            return redirect()->route('admin');
+               toastr()->success('Your Login Successful.');
+               return redirect()->route('admin');
+            
            }else{
+               toastr()->success('Your Login Successful.');
             return redirect()->route('home');
            }
         }else{
-            return redirect()->route('login');
+          toastr()->error('Your Login Failed.');
+        return redirect()->route('login');
         }
     }
 
     // Log Out section
     public function logout(){
         Auth::logout();
+        toastr()->success('Your Log Out successful.');
         return redirect()->route('home');
     }
 }

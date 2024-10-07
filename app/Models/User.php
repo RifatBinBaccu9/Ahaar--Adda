@@ -10,9 +10,6 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    public function booking(){
-        return $this->hasOne(Booking::class, 'user_id');
-    }
     /**
      * The attributes that are mass assignable.
      *

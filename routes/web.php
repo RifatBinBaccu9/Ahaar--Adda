@@ -16,7 +16,6 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //// font-site section ////
@@ -212,13 +211,14 @@ Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updat
 Route::post('/user/profile/updatePassword', [UserProfileController::class, 'updatePassword'])->name('updatePassword');
 
 
-//// Mail Sent  ////
-Route::get('/SentMail', [MailController::class, 'SentMail']);
-
-
 
 //// user-site section ////
 Route::get('/user', [UserController::class, 'userSite']);
 Route::get('/user/profiles', [UserController::class, 'userSiteprofiles']);
 Route::get('/user/bookingList', [UserController::class, 'userSitebookingList']);
 
+
+
+
+//// Mail Sent  ////
+Route::get('/SentMail', [MailController::class, 'sentMail'])->name('mails');

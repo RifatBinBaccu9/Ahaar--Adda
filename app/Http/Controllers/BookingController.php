@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeMail;
 use App\Models\AddBookingPeople;
 use App\Models\Footer;
 use App\Models\Booking;
 use App\Models\Navbar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -103,6 +105,7 @@ public function addbookingPeopleDataDelete($id){
      $post->status = 'accepted';
      $post->save();
 
+     Mail::to($post->email)->send(new WelcomeMail($post, 'accepted'));
      return redirect()->back();
  }
 
@@ -113,6 +116,7 @@ public function addbookingPeopleDataDelete($id){
      $post->status = 'rejected';
      $post->save();
 
+     Mail::to($post->email)->send(new WelcomeMail($post, 'rejected'));
      return redirect()->back();
  }
 }

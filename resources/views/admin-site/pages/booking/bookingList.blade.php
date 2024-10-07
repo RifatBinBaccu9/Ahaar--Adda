@@ -62,7 +62,7 @@
                       @else
                       <form action="{{ route('posts.accept', $item->id) }}" method="POST" style="display:inline;">
                         @csrf
-                        <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                        <button type="submit"  class="btn btn-success btn-sm">Accept</button>
                     </form>
                     <form action="{{ route('posts.reject', $item->id) }}" method="POST" style="display:inline;">
                       @csrf

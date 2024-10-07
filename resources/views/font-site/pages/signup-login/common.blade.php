@@ -22,6 +22,13 @@
         <span>My Profile</span>
       </a>
     </li>
+    @else
+    <li>
+      <a class="dropdown-item d-flex align-items-center" href="{{url('/user/profiles')}}">
+        <i class="bi bi-person"></i>
+        <span>My Profile</span>
+      </a>
+    </li>
     @endif
     <li>
       <hr class="dropdown-divider">
@@ -30,6 +37,12 @@
         @if(Auth::user()->is_tyep == 'admin')
         <li>
           <a class="dropdown-item d-flex align-items-center" href="{{url('/admin')}}">
+            <span>Dashboard</span>
+          </a>
+        </li>
+        @else
+        <li>
+          <a class="dropdown-item d-flex align-items-center" href="{{url('/user')}}">
             <span>Dashboard</span>
           </a>
         </li>

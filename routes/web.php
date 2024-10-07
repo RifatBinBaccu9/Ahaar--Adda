@@ -14,6 +14,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SignupLoginControllr;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -203,8 +204,6 @@ Route::post('/admin/footerUpdatePush', [FooterController::class, 'footerUpdatePu
 //// Admin-site secton ////
 Route::get('/admin', [AdminController::class, 'admin'])->name('admin')->middleware('admin');
 
-
-
 //// user profile ////
 Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('userProfile');
 Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updateProfile'])->name('updateProfile');
@@ -213,13 +212,13 @@ Route::post('/user/profile/updateProfile', [UserProfileController::class, 'updat
 Route::post('/user/profile/updatePassword', [UserProfileController::class, 'updatePassword'])->name('updatePassword');
 
 
-
 //// Mail Sent  ////
 Route::get('/SentMail', [MailController::class, 'SentMail']);
 
 
 
 //// user-site section ////
-Route::get('/user', function (){
-    return view('user-site.pages.bookingList');
-});
+Route::get('/user', [UserController::class, 'userSite']);
+Route::get('/user/profiles', [UserController::class, 'userSiteprofiles']);
+Route::get('/user/bookingList', [UserController::class, 'userSitebookingList']);
+

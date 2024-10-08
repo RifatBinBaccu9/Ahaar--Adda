@@ -3,11 +3,11 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Update Number of people</h1>
+      <h1>Update Set Number of people</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-          <li class="breadcrumb-item active">Update Number of people</li>
+          <li class="breadcrumb-item active">Update Set Number of people</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -22,7 +22,7 @@
             <input type="hidden" name="id" value="{{$peopleUpView->id}}">
             <div class="col-12">
               <label for="people" class="form-label">Number of people</label>
-              <input type="text" name="people" class="@error('people') is-invalid @enderror form-control" id="people">
+              <input type="text" name="people" value="{{$peopleUpView->people}}" class="@error('people') is-invalid @enderror form-control" id="people">
               @error('people')
               <div class="text-danger">{{ $message }}</div>
             @enderror

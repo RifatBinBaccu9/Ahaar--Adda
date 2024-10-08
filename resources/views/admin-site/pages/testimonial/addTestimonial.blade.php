@@ -27,14 +27,14 @@
               @enderror
             </div>
             <div class="col-12">
-              <label for="TestimonialName" class="form-label">Member Name</label>
+              <label for="TestimonialName" class="form-label">Testimonial Name</label>
               <input type="text" name="TestimonialName" class="@error('TestimonialName') is-invalid @enderror form-control" id="TestimonialName">
               @error('TestimonialName')
               <div class="text-danger">{{ $message }}</div>
             @enderror
             </div>
             <div class="col-12">
-              <label for="TestimonialProfesstion" class="form-label">Member Designation</label>
+              <label for="TestimonialProfesstion" class="form-label">Testimonial Designation</label>
               <input type="text" name="TestimonialProfesstion" class="@error('TestimonialProfesstion') is-invalid @enderror form-control" id="TestimonialProfesstion">
               @error('TestimonialProfesstion')
               <div class="text-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
             </div>
             <div class="form-floating mb-3">
                 <textarea class="form-control @error('TestimonialDetails') is-invalid @enderror" name="TestimonialDetails" placeholder="Leave a comment here" id="TestimonialDetails" style="height: 100px;"></textarea>
-                <label for="TestimonialDetails">Food Details</label>
+                <label for="TestimonialDetails">Details</label>
                 @error('TestimonialDetails')
                 <div class="text-danger">{{ $message }}</div>
               @enderror

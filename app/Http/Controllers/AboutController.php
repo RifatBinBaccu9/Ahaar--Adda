@@ -98,6 +98,11 @@ class AboutController extends Controller
             toastr()->success('About Data Update Successful.');
             return redirect()->back();
         }else{
+            $req->validate([
+                'years'=> 'required',
+                'chefs'=> 'required',
+                'description'=> 'required',
+                ]);
             About::create($about);
             toastr()->success('About Data Create Successful.');
             return redirect()->back();

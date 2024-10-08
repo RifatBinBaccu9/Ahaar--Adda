@@ -24,6 +24,9 @@ class NavbarUpdateController extends Controller
                 toastr()->success('Navbar Name Data Update Successful.');
                 return redirect()->back();
             } else {
+                $req->validate([
+                    'NavbarName'=> 'required'
+                    ]);
                 Navbar::create($data);
                 toastr()->success('Navbar Name Data Create Successful.');
                 return redirect()->back();

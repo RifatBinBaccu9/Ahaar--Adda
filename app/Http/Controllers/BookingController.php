@@ -18,14 +18,22 @@ class BookingController extends Controller
         $navbar=Navbar::get();
         $booking=AddBookingPeople::get();
         $footer=Footer::get();
-        return view('font-site.pages.booking',['bookingView'=>$booking, 'footerView'=>$footer,'user'=>$user, 'navbarView'=>$navbar]);
+        return view('font-site.pages.booking',[
+            'bookingView'=>$booking, 
+            'footerView'=>$footer,
+            'user'=>$user, 
+            'navbarView'=>$navbar
+        ]);
     }
 
     // admin add booking People section
     public function addbookingPeople(){
         $navbar=Navbar::get();
         $user=Auth::user();
-        return view('admin-site.pages.booking.addPeopleBooking', ['NavbarView'=>$navbar, 'user'=>$user,]);
+        return view('admin-site.pages.booking.addPeopleBooking', [
+            'NavbarView'=>$navbar, 
+            'user'=>$user,
+        ]);
     }
   public function bookingPeoplePush(Request $req){
     $req->validate([
@@ -42,7 +50,9 @@ class BookingController extends Controller
     $people=AddBookingPeople::get();
     $user=Auth::user();
     return view('admin-site.pages.booking.peopleBookingData', [
-        'NavbarView'=>$navbar, 'user'=>$user, 'peopleView'=>$people
+        'NavbarView'=>$navbar, 
+        'user'=>$user, 
+        'peopleView'=>$people
     ]);
   }
 
@@ -74,6 +84,7 @@ public function addbookingPeopleDataDelete($id){
          'message'=>'required',
         ]);
         $bookingData=[
+          'user_id' => Auth::user()->id,
           'name'=>$req->name,
           'email'=>$req->email,
           'datetime'=>$req->datetime,
@@ -89,7 +100,7 @@ public function addbookingPeopleDataDelete($id){
     public function bookingList() {
     $navbar=Navbar::get();
     $user=Auth::user();
-    $booking = Booking::get();
+    $booking = Booking::with('user')->get();
     
     return view('admin-site.pages.booking.bookingList', [
         'BookingView' => $booking,

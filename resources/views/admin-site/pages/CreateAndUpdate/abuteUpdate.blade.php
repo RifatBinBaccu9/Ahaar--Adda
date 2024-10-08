@@ -21,31 +21,52 @@
             @csrf
             <div class="form-group">
               <label for="image1">Image Top Left</label>
-              <input type="file" name="image1" class="form-control" id="image1">
+              <input type="file" name="image1" class="@error('image1') is-invalid @enderror form-control" id="image1">
+              @error('image1')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
             <div class="form-group">
               <label for="image2">Image Top Right</label>
-              <input type="file" name="image2" class="form-control" id="image2">
+              <input type="file" name="image2" class="@error('image2') is-invalid @enderror form-control" id="image2">
+              @error('image2')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
             <div class="form-group">
               <label for="image3"></label>
-              <input type="file" name="image3" class="form-control" id="image3">
+              <input type="file" name="image3" class="@error('image3') is-invalid @enderror form-control" id="image3">
+              @error('image3')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
             <div class="form-group">
               <label for="image4">Image Bottom Left</label>
-              <input type="file" name="image4" class="form-control" id="image4">
+              <input type="file" name="image4" class="@error('image4') is-invalid @enderror form-control" id="image4">
+              @error('image4')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
             <div class="form-group">
               <label for="years">Image bottom Right</label>
-              <input type="text" name="years" class="form-control" id="years">
+              <input type="text" name="years" class="@error('years') is-invalid @enderror form-control" id="years">
+              @error('years')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
             <div class="form-group">
               <label for="chefs">Popular Master Chefs</label>
-              <input type="text" name="chefs" class="form-control" id="chefs">
+              <input type="text" name="chefs" class="@error('chefs') is-invalid @enderror form-control" id="chefs">
+              @error('chefs')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
             <div class="form-group">
               <label for="description">Description</label>
-              <textarea type="text" name="description" class="form-control" id="description"></textarea>
+              <textarea type="text" name="description" class="@error('description') is-invalid @enderror form-control" id="description"></textarea>
+              @error('description')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
           <button type="submit" class="btn btn-primary">Update</button>
           </form><!-- Vertical Form -->

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('datetime');
             $table->string('select');
             $table->string('message');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->timestamps();
         });

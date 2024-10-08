@@ -25,6 +25,7 @@
                     <th>Date $ Time</th>
                     <th>People</th>
                     <th>Message</th>
+                    <th>Status</th>
                 </tr>
             </thead>
               <tbody>
@@ -35,6 +36,17 @@
                     <td>{{$item->datetime}}</td>
                     <td>{{$item->select}}</td>
                     <td>{{$item->message}}</td>
+                    <td>
+
+                      @if ($item->status == 'accepted')
+                          <h5 style="color: green;">Accept</h5>
+                      @elseif ($item->status == 'rejected')
+                          <h5 style="color: red;">Reject</h5>
+                      @else
+                          <h5 style="color: orange;">Pending</h5>
+                      @endif
+
+                    </td>
                 </tr>
 
                 @endforeach

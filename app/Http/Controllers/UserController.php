@@ -12,7 +12,7 @@ class UserController extends Controller
     public function userSite(){
         $user=Auth::user();
         $navbar=Navbar::get();
-        return view('user-site.pages.home',['NavbarView'=>$navbar,'user'=>$user]);
+        return view('user-site.pages.profile',['NavbarView'=>$navbar,'user'=>$user]);
     }
     public function userSiteprofiles(){
         $user=Auth::user();
@@ -22,7 +22,11 @@ class UserController extends Controller
     public function userSitebookingList(){
         $user=Auth::user();
         $navbar=Navbar::get();
-        $booking = Booking::get();
-        return view('user-site.pages.BookingList', ['NavbarView'=>$navbar,'BookingView' => $booking, 'user'=>$user]);
+        $booking = Booking::where('user_id', Auth::user()->id)->with('user')->get();
+        return view('user-site.pages.BookingList', [
+            'NavbarView'=>$navbar,
+            'BookingView' => $booking, 
+            'user'=>$user
+        ]);
     }
 }

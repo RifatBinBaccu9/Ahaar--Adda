@@ -21,11 +21,17 @@
             @csrf
             <div class="form-group">
               <label for="carouselName">Carousel Name</label>
-              <input type="text" name="carouselName" class="form-control" id="carouselName">
+              <input type="text" name="carouselName" class="@error('carouselName') is-invalid @enderror form-control" id="carouselName">
+              @error('carouselName')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
             <div class="form-group">
               <label for="description">Description</label>
-              <textarea type="text" name="description" class="form-control" id="description"></textarea>
+              <textarea type="text" name="description" class="@error('description') is-invalid @enderror form-control" id="description"></textarea>
+              @error('description')
+              <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
           <button type="submit" class="btn btn-primary">Update</button>
           </form><!-- Vertical Form -->

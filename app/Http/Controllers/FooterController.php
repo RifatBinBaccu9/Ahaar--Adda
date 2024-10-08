@@ -32,6 +32,16 @@ class FooterController extends Controller
             toastr()->success('Footer Data Update Successful.');
             return redirect()->back();
         }else{
+            $req->validate([
+                'FooterAddress'=> 'required',
+                'FooterPhone'=> 'required',
+                'FooterEmail'=> 'required',
+                'OpeningDayOption1'=> 'required',
+                'OpeningTimeOption1'=> 'required',
+                'OpeningDayOption2'=> 'required',
+                'OpeningTimeOption2'=> 'required',
+                'FooterNewsletter'=> 'required'
+                ]);
             Footer::create($footer);
             toastr()->success('Footer Data Create Successful.');
             return redirect()->back();

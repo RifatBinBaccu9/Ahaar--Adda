@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function admin() {
         $user=Auth::user();
         $navbar=Navbar::get();
-        return view('admin-site.pages.home',[
+        return view('admin-site.pages.profile.profile',[
             'user'=>$user,
             'NavbarView'=>$navbar,
         ]);

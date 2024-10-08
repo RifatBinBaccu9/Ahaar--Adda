@@ -32,7 +32,7 @@
               <tbody>
                 @foreach ($BookingView as $item)
                 <tr>
-                    <td>{{$item->name}}</td>
+                    <td>{{$item->user->name}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->datetime}}</td>
                     <td>{{$item->select}}</td>

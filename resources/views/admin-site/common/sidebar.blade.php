@@ -3,9 +3,9 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{url('/admin')}}">
+        <a class="nav-link " href="{{url('/user/profile')}}">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Profile</span>
         </a>
       </li><!-- End Dashboard Nav -->
       
@@ -50,7 +50,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('/admin/addbookingPeopleData') }}">
             <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Add Booking People List</span>
+            <span>Add People Set List</span>
         </a>
     </li><!-- End Service Setting Nav -->
 

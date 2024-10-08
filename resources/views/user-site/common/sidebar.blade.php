@@ -3,9 +3,9 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{url('/user')}}">
+        <a class="nav-link " href="{{url('/user/profiles')}}">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Profile</span>
         </a>
       </li><!-- End Dashboard Nav -->
 

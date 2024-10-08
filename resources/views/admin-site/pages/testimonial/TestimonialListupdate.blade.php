@@ -42,7 +42,7 @@
             @enderror
             </div>
             <div class="form-floating mb-3">
-                <textarea value="{{$TestimonialStorage->TestimonialDetails}}" class="form-control @error('TestimonialDetails') is-invalid @enderror" name="TestimonialDetails" placeholder="Leave a comment here" id="TestimonialDetails" style="height: 100px;"></textarea>
+                <textarea class="form-control @error('TestimonialDetails') is-invalid @enderror" name="TestimonialDetails" placeholder="Leave a comment here" id="TestimonialDetails" style="height: 100px;">{{$TestimonialStorage->TestimonialDetails}}</textarea>
                 <label for="TestimonialDetails">Food Details</label>
                 @error('TestimonialDetails')
                 <div class="text-danger">{{ $message }}</div>

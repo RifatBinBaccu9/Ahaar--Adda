@@ -21,8 +21,8 @@
             @csrf
             <input type="hidden" name="id" value="{{$teamStorage->id}}">
             <div class="mb-3">
-                <label for="MemberPicture" value="{{$teamStorage->id}}" class="form-label">Upload Team Member Picture</label>
-                <input class="form-control @error('MemberPicture') is-invalid @enderror" type="file" id="MemberPicture" name="MemberPicture" accept="image/*">
+                <label for="MemberPicture" class="form-label">Upload Team Member Picture</label>
+                <input  value="{{$teamStorage->MemberPicture}}"  class="form-control @error('MemberPicture') is-invalid @enderror" type="file" id="MemberPicture" name="MemberPicture" accept="image/*">
                 @error('MemberPicture')
                 <div class="text-danger">{{ $message }}</div>
               @enderror

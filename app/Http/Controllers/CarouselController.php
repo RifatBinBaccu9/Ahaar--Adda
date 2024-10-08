@@ -29,6 +29,10 @@ class CarouselController extends Controller
             toastr()->success('Carousel Data Update Successful.');
             return redirect()->back();
         }else{
+            $req->validate([
+                'carouselName'=> 'required',
+                'description'=> 'required',
+                ]);
             Carousel::create($carouselData);
             toastr()->success('Carousel Data Create Successful.');
             return redirect()->back();

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('MemberPicture');
             $table->string('MemberName');
-            $table->string('MemberDesignation');
+            $table->text('MemberDesignation');
             $table->string('FacebookLink');
             $table->string('TuitterLink');
             $table->string('InstagramLink');

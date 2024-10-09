@@ -67,7 +67,7 @@
                 @foreach ($serviceView as $item)
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item rounded pt-3">
-                    <div class="p-4" style="height: 350px">
+                    <div class="p-4">
                         <i class="{{$item->ServiceIcon}} text-primary mb-4"></i>
                         <h5>{{$item->ServiceTitle}}</h5>
                         <p>{{$item->ServiceDetails}}</p>

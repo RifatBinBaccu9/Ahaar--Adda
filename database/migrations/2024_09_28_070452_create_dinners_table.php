@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('foodPicture')->nullable();
             $table->string('foodName')->nullable();
             $table->string('foodPrice')->nullable();
-            $table->string('foodDetails')->nullable();
+            $table->text('foodDetails')->nullable();
             $table->timestamps();
         });
     }

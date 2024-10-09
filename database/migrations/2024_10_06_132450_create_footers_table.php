@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('OpeningTimeOption1')->nullable();
             $table->string('OpeningDayOption2')->nullable();
             $table->string('OpeningTimeOption2')->nullable();
-            $table->string('FooterNewsletter')->nullable();
+            $table->text('FooterNewsletter')->nullable();
             $table->timestamps();
         });
     }

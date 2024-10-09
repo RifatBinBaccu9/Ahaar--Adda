@@ -34,21 +34,21 @@
             @enderror
           </div>
             <div class="form-group">
-              <label for="image3"></label>
+              <label for="image3">Image Bottom Left</label>
               <input type="file" name="image3" class="@error('image3') is-invalid @enderror form-control" id="image3">
               @error('image3')
               <div class="text-danger">{{ $message }}</div>
             @enderror
           </div>
             <div class="form-group">
-              <label for="image4">Image Bottom Left</label>
+              <label for="image4">Image bottom Right</label>
               <input type="file" name="image4" class="@error('image4') is-invalid @enderror form-control" id="image4">
               @error('image4')
               <div class="text-danger">{{ $message }}</div>
             @enderror
           </div>
             <div class="form-group">
-              <label for="years">Image bottom Right</label>
+              <label for="years">Years of Experience</label>
               <input type="text" name="years" class="@error('years') is-invalid @enderror form-control" id="years">
               @error('years')
               <div class="text-danger">{{ $message }}</div>

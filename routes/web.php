@@ -215,7 +215,7 @@ Route::post('/user/profile/updatePassword', [UserProfileController::class, 'upda
 //// user-site section ////
 Route::get('/user', [UserController::class, 'userSite']);
 Route::get('/user/profiles', [UserController::class, 'userSiteprofiles']);
-Route::get('/user/bookingList', [UserController::class, 'userSitebookingList']);
+Route::get('/user/bookingList', [UserController::class, 'userSitebookingList'])->name('userSitebookingList');
 
 
 

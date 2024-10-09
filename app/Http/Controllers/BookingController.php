@@ -93,8 +93,7 @@ public function addbookingPeopleDataDelete($id){
         ];
         Booking::create($bookingData);
         toastr()->success('Your Booking Successful.');
-        return redirect()->back();
-        dd($bookingData);
+        return redirect()->route('userSitebookingList');
     }
 
     public function bookingList() {

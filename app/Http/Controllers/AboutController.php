@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Footer;
 use App\Models\About;
 use App\Models\Navbar;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,14 @@ class AboutController extends Controller
         $navbar=Navbar::get();
         $about=About::get();
         $footer=Footer::get();
-            return view('font-site.pages.about',  ['footerView'=>$footer,'aboutview'=>$about, 'navbarView'=>$navbar, 'user'=>$user]);
+        $teamStor=Team::get();
+        return view('font-site.pages.about',  [
+            'footerView'=>$footer,
+            'aboutview'=>$about, 
+            'navbarView'=>$navbar, 
+            'user'=>$user,
+            'teamMemberView'=>$teamStor
+        ]);
     }
 
     // admin update about section 

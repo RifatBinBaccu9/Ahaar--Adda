@@ -34,7 +34,7 @@
             @enderror
             </div>
             <div class="col-12">
-              <label for="TestimonialProfesstion" class="form-label">Testimonial Designation</label>
+              <label for="TestimonialProfesstion" class="form-label">Testimonial Professon</label>
               <input type="text" name="TestimonialProfesstion" class="@error('TestimonialProfesstion') is-invalid @enderror form-control" id="TestimonialProfesstion">
               @error('TestimonialProfesstion')
               <div class="text-danger">{{ $message }}</div>

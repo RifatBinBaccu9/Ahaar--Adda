@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('TestimonialPicture');
             $table->string('TestimonialName');
             $table->string('TestimonialProfesstion');
-            $table->string('TestimonialDetails');
+            $table->text('TestimonialDetails');
             $table->timestamps();
         });
     }

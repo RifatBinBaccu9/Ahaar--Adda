@@ -16,7 +16,12 @@ class TeamController extends Controller
         $user=Auth::user();
         $footer=Footer::get();
         $teamStor=Team::get();
-        return view('font-site.pages.team', ['footerView'=>$footer,'navbarView'=>$navbar,'user'=>$user,'teamMemberView'=>$teamStor]);
+        return view('font-site.pages.team', [
+            'footerView'=>$footer,
+            'navbarView'=>$navbar,
+            'user'=>$user,
+            'teamMemberView'=>$teamStor
+        ]);
     }
 
     //Admin Add Team Member section

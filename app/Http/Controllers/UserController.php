@@ -22,7 +22,7 @@ class UserController extends Controller
     public function userSitebookingList(){
         $user=Auth::user();
         $navbar=Navbar::get();
-        $booking = Booking::where('user_id', Auth::user()->id)->with('user')->get();
+        $booking = Booking::where('user_id', Auth::user()->id)->get();
         return view('user-site.pages.BookingList', [
             'NavbarView'=>$navbar,
             'BookingView' => $booking, 
